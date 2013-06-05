@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130605144142) do
+ActiveRecord::Schema.define(version: 20130605222452) do
 
   create_table "connections", force: true do |t|
     t.integer  "user_id",      null: false
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20130605144142) do
 
   add_index "connections", ["provider", "uid"], name: "index_connections_on_provider_and_uid", unique: true
   add_index "connections", ["user_id"], name: "index_connections_on_user_id"
+
+  create_table "groups", force: true do |t|
+    t.string   "name",                          null: false
+    t.text     "content"
+    t.string   "level",      default: "public", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["level"], name: "index_groups_on_level"
 
   create_table "users", force: true do |t|
     t.string   "email"
