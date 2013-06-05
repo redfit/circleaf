@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/brainspec/enumerize.git
+  revision: 4e1906e4f707ef483e26e173e27b1313e346ee71
+  branch: rails4
+  specs:
+    enumerize (0.5.1)
+      activesupport (>= 3.2)
+
+GIT
   remote: git://github.com/heroku/rails3_serve_static_assets.git
   revision: 84910ceb4ca2851d650e66d3b22f5008acf253f8
   specs:
@@ -304,6 +312,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0.rc1)
   database_cleaner!
   delorean
+  enumerize!
   factory_girl
   factory_girl_rails
   faker

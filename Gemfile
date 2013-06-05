@@ -11,6 +11,7 @@ gem 'warden'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'enumerize', github: 'brainspec/enumerize', branch: 'rails4'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
