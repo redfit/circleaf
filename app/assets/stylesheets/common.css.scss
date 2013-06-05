@@ -1,0 +1,47 @@
+$accent_color: #004f94;
+$basic_color: #222222;
+
+@mixin head_color {
+  color: $basic_color;
+}
+
+h1 {
+  @include head_color;
+}
+
+.navbar-fixed-top .navbar-inner,
+.navbar-static-top .navbar-inner
+{
+  border-color: $accent_color;
+  border-width: 0 0 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar {
+  .brand {
+    @include head_color;
+    font-family: serif;
+    font-weight: bold;
+  }
+}
+
+.hidden {
+  display: hidden;
+}
+
+body {
+  >div.container-fluid {
+    padding-bottom: 300px;
+  }
+  >footer {
+    background-color: $accent_color;
+    bottom: 0;
+    color: #efefef;
+    left: 0;
+    padding: 20px 0 40px 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+  }
+}
