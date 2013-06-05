@@ -7,6 +7,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 gem 'haml-rails'
 gem 'figaro'
+gem 'warden'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
@@ -38,7 +39,7 @@ group :test, :development do
   gem 'pry'
   gem 'tapp'
   gem 'awesome_print'
-  gem 'spring'
+  gem 'spring', github: 'jonleighton/spring'
 
   # Testing tools
   gem 'database_cleaner', github: 'scottwillson/database_cleaner'

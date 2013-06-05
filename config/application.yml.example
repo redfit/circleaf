@@ -1,0 +1,6 @@
+TWITTER_APP_ID: 'a'
+TWITTER_APP_SECRET: 'b'
+test:
+  TEST_ASSET_HOST: ''
+  # forman
+  #TEST_ASSET_HOST: 'http://localhost:3000'
