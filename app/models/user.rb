@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  devise :rememberable, :trackable, :omniauthable
   has_many :connections
 
   class << self
