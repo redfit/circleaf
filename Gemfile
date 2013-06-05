@@ -15,6 +15,7 @@ gem 'enumerize', github: 'brainspec/enumerize', branch: 'rails4'
 gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'simple_form'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
