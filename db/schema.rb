@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130605222452) do
+ActiveRecord::Schema.define(version: 20130605223310) do
 
   create_table "connections", force: true do |t|
     t.integer  "user_id",      null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20130605222452) do
   end
 
   add_index "groups", ["level"], name: "index_groups_on_level"
+
+  create_table "memberships", force: true do |t|
+    t.integer  "group_id",                      null: false
+    t.integer  "user_id",                       null: false
+    t.string   "level",      default: "member", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["group_id", "user_id"], name: "index_memberships_on_group_id_and_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email"
