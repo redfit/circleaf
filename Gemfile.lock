@@ -77,6 +77,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    commonjs (0.2.6)
     daemons (1.1.9)
     delorean (2.1.0)
       chronic
@@ -134,6 +135,12 @@ GEM
       thor (>= 0.14, < 2.0)
     launchy (2.3.0)
       addressable (~> 2.3)
+    less (2.3.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
+      actionpack (>= 3.1)
+      less (~> 2.3.1)
+    libv8 (3.11.8.17)
     listen (1.1.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -186,6 +193,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    ref (1.0.5)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -235,6 +243,9 @@ GEM
       thor
     temple (0.6.5)
     terminal-table (1.4.5)
+    therubyracer (0.11.4)
+      libv8 (~> 3.11.8.12)
+      ref
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -248,6 +259,11 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (1.2.0)
       coffee-rails
+    twitter-bootstrap-rails (2.2.7)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -281,6 +297,7 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   launchy
+  less-rails
   pg
   poltergeist
   pry
@@ -293,7 +310,9 @@ DEPENDENCIES
   spring!
   sqlite3
   tapp
+  therubyracer
   thin
   turbolinks
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   warden

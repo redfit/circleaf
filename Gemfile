@@ -8,6 +8,9 @@ gem 'jbuilder', '~> 1.0.1'
 gem 'haml-rails'
 gem 'figaro'
 gem 'warden'
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
