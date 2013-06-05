@@ -11,6 +11,10 @@ gem 'warden'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+gem 'enumerize', github: 'brainspec/enumerize', branch: 'rails4'
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
@@ -58,6 +62,9 @@ group :test, :development do
   gem 'guard-rspec', require: false
   gem 'guard-sprockets2'
   gem 'rb-fsevent', require: RUBY_PLATFORM.downcase =~ /darwin/ ? 'rb-fsevent' : false
+
+  # Reset DB
+  gem 'rails-db-resetup'
 end
 
 group :production do
