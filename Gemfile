@@ -12,6 +12,9 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'enumerize', github: 'brainspec/enumerize', branch: 'rails4'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
