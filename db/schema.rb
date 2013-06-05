@@ -11,6 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20130605141551) do
+
+  create_table "users", force: true do |t|
+    t.string   "email",                 null: false
+    t.string   "name"
+    t.string   "image"
+    t.integer  "default_provider_id"
+    t.string   "unconfirmed_email"
+    t.datetime "confirm_limit_at"
+    t.string   "hash_to_confirm_email"
+    t.string   "locale"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end

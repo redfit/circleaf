@@ -75,5 +75,8 @@ RSpec.configure do |config|
   # master data
   load "#{Rails.root}/db/seeds.rb"
 
+  # factory_girl
+  config.include FactoryGirl::Syntax::Methods
+
   FactoryGirl.reload
 end
