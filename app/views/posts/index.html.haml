@@ -1,0 +1,10 @@
+- content_for(:body_class, 'posts')
+- content_for(:group_id, @group.id.to_s)
+%ul.media-list.posts
+  - @posts.each do |post|
+    %li.media= render('post', post: post)
+
+= simple_form_for([@group, Post.new], html: {class: 'form-inline'}) do |f|
+  = f.input(:content, label: false, input_html: {class: 'span12'}, autocomplete: 'off')
+  = f.submit(t('.submit'), class: 'btn btn-primary')
+  

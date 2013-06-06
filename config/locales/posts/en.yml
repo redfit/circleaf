@@ -1,0 +1,6 @@
+en:
+  posts:
+    index:
+      submit: 'Post'
+    post:
+      delete: 'Delete this post'
