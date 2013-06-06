@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       group: 'グループ'
+      post: '投稿'
     attributes:
       user:
         name: 'ユーザー名'
@@ -14,6 +15,8 @@ ja:
         name: 'グループ名'
         content: 'グループ詳細'
         level: '公開範囲'
+      post:
+        content: '投稿内容'
     errors:
       models:
         group:

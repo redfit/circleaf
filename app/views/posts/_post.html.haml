@@ -1,0 +1,14 @@
+%section.post[post]
+  %div.pull-left
+    %div.name
+      = image_tag(post.user.image, class: 'media-object')
+      %span= post.user.name
+  %div.media-body
+    %div.content
+      = post.content
+    %div.pull-right.info
+      %span.muted.created_at
+        = post.created_at
+      %span.action
+        %span.destroy
+          = link_to(t('.delete'), post_path(post), method: :delete)

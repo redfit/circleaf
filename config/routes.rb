@@ -6,6 +6,7 @@ IshikitakaiCom::Application.routes.draw do
 
   resources :groups do
     resource :memberships, only: [:create, :destroy]
+    resources :posts, only: [:index, :show, :create, :update, :destroy], shallow: true
   end
   root 'pages#index'
 end

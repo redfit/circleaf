@@ -12,6 +12,7 @@ describe Group do
 
   describe 'relations' do
     it { should have_many(:users).through(:memberships) }
+    it { should have_many(:posts) }
   end
 
   describe '#join' do
