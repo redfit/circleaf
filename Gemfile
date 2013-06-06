@@ -16,6 +16,7 @@ gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'simple_form'
+gem 'active_decorator'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0.rc1'
@@ -26,6 +27,8 @@ end
 group :development do
   gem 'thin'
   gem 'foreman'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test, :development do
@@ -50,7 +53,7 @@ group :test, :development do
   gem 'spring', github: 'jonleighton/spring'
 
   # Testing tools
-  gem 'database_cleaner', github: 'scottwillson/database_cleaner'
+  gem "database_cleaner", '1.0.0.RC1'
   gem "brakeman"
 
   # Capistrano
