@@ -3,6 +3,7 @@ en:
     models:
       user: 'User'
       group: 'Group'
+      post: 'Post'
     attributes:
       user:
         name: 'User name'
@@ -14,6 +15,8 @@ en:
         name: 'Group name'
         content: 'Group introduction'
         level: 'Scope of disclosure'
+      post:
+        content: 'Post content'
     errors:
       models:
         group:
