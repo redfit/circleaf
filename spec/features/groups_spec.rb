@@ -83,9 +83,9 @@ describe "Groups" do
           let(:new_group) { FactoryGirl.build(:group) }
           context 'フォームを埋めた場合' do
             before do
-              find('#group_name').set new_group.name
-              find('#group_content').set new_group.content
-              page.select(Group.label(new_group.level), from: 'Level')
+              find('#group_name').set(new_group.name)
+              find('#group_content').set(new_group.content)
+              select(Group.label(new_group.level), from: 'group_level')
               find('form#new_group input[type=submit]').click()
             end
 
