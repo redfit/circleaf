@@ -1,3 +1,15 @@
 ja:
   site_info:
     title: '#ishikitakai'
+  nav:
+    common:
+      cancel: 'キャンセル'
+    groups:
+      new: '新規作成'
+      join: '加入する'
+      leave: '脱退する'
+  group:
+    level:
+      labels:
+        public: '全体公開'
+        private: '秘密'

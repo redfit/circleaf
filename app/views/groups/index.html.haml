@@ -1,0 +1,14 @@
+- content_for(:body_class, 'groups')
+%h1= t('.title')
+
+= link_to(new_group_path, class: 'new_btn btn btn-primary') do
+  %i.icon-white.icon-plus-sign
+  = t('nav.groups.new')
+
+%ul.thumbnails
+  - @groups.each do |group|
+    %li.span4
+      = link_to(group_path(group), class: 'thumbnail') do
+        %h4= group.name
+        = image_tag "http://lorempixel.com/400/200/?rand=#{Random.rand}", class: 'img-rounded'
+        %p= truncate(group.content, length: 20)

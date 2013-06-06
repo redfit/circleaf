@@ -1,0 +1,10 @@
+en:
+  groups:
+    index:
+      title: 'Group list'
+      created: 'Created'
+      destroyed: 'Destroyed'
+      destroyed_error: "We could not destroy"
+    show:
+      updated: 'Updated'
+      

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   devise :rememberable, :trackable, :omniauthable
   has_many :connections
+  has_many :memberships
+  has_many :groups, through: :memberships
 
   class << self
     def authentication(auth_hash, current_user = nil)

@@ -1,0 +1,6 @@
+ja:
+  memberships:
+    create:
+      created: 'グループに加入しました'
+    destroy:
+      destroyed: 'グループから脱退しました'

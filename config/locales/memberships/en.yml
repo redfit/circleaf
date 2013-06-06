@@ -1,0 +1,6 @@
+en:
+  memberships:
+    create:
+      created: 'Joined the group'
+    destroy:
+      destroyed: 'Left the group'

@@ -45,3 +45,14 @@ body {
     width: 100%;
   }
 }
+
+ul.thumbnails {
+  margin-top: 15px;
+  >li {
+    display: inline-block;
+    vertical-align: top;
+    &.span4:nth-child(3n + 1) {
+      margin-left: 0;
+    }
+  }
+}
