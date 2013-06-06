@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    models:
+      user: 'User'
+      group: 'Group'
+    attributes:
+      user:
+        name: 'User name'
+        email: 'E-mail Address'
+        image: 'User image'
+        locale: 'Locale Setting'
+        content: 'Self-introduction'
+      group:
+        name: 'Group name'
+        content: 'Group introduction'
+        level: 'Scope of disclosure'
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank: 'Fill group name'
+            level:
+              blank: 'Select scope of disclosure'

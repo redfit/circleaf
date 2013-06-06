@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      group: 'グループ'
+    attributes:
+      user:
+        name: 'ユーザー名'
+        email: 'メールアドレス'
+        image: 'ユーザー画像'
+        locale: '言語設定'
+        content: '自己紹介文'
+      group:
+        name: 'グループ名'
+        content: 'グループ詳細'
+        level: '公開範囲'
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank: 'グループ名を入力して下さい'
+            level:
+              blank: '公開範囲を選択して下さい'
