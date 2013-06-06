@@ -1,10 +1,13 @@
 class Group < ActiveRecord::Base
   extend Enumerize
+  include Levelable
   LEVELS = [:public, :private].freeze
   enumerize :level, in: self::LEVELS
 
   has_many :memberships
   has_many :users, through: :memberships
+
+  validates_presence_of :name, :level
 
   def join(user, level = 'member')
     user.memberships.create(group_id: self.id, level: level) unless user.groups.include?(self)

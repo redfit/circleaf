@@ -1,3 +1,15 @@
 en:
   site_info:
     title: '#ishikitakai'
+  nav:
+    common:
+      cancel: 'Cancel'
+    groups:
+      new: 'New group'
+      join: 'Join the group'
+      leave: 'Leave the group'
+  group:
+    level:
+      labels:
+        public: 'Public'
+        private: 'Private'

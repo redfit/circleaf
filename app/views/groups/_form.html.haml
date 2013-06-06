@@ -1,0 +1,9 @@
+= simple_form_for(@group, html: {class: 'form-horizontal'}) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input(:name)
+    = f.input(:content)
+    = f.input(:level, collection: Group.level_collection)
+  .form-actions
+    = f.submit(nil, class: 'btn btn-primary')
+    = link_to(t('nav.common.cancel'), groups_path, class: 'btn')

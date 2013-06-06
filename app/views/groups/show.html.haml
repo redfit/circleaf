@@ -1,0 +1,13 @@
+.row-fluid
+  .span9
+    %h1= @group.name
+    %section.content
+      = simple_format @group.content
+
+    = @group.link_join_or_leave(current_user)
+  .span3
+    %h3= t('.members')
+    %ul.unstyled
+      = content_tag_for :li, @group.users.each do |user|
+        = image_tag(user.image, class: 'img-polaroid')
+        = user.name
