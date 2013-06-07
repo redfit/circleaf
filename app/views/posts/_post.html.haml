@@ -5,7 +5,7 @@
       %span= post.user.name
   %div.media-body
     %div.content
-      = post.content
+      = simple_format(post.content)
     %div.pull-right.info
       %span.muted.created_at
         = post.created_at
