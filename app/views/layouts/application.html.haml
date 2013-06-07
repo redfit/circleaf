@@ -15,7 +15,7 @@
     %link(href="favicon.ico" rel="shortcut icon")
 
 
-  %body{ class: yield(:body_class) }
+  %body{ class: yield(:body_class), data: {group_id: yield(:group_id)} }
     .navbar.navbar-fixed-top
       .navbar-inner
         .container-fluid
