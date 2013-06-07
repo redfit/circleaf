@@ -22,8 +22,6 @@ describe "Posts" do
       before do
         find('textarea#post_content').set(new_post.content)
         find('form#new_post input[type=submit]').click()
-        sleep(3)
-        page.evaluate_script("window.App.post.fetch(#{Post.last.id})")
       end
       it '投稿した内容が表示される' do
         page.should have_content(new_post.content)
