@@ -22,8 +22,8 @@ class Post
     @listen()
 
   dom: ->
-    $('textarea').focus()
-    $('textarea').keydown (event) ->
+    $('form#new_post textarea').focus()
+    $('form#new_post textarea').keydown (event) ->
       event.stopPropagation()
       if event.keyCode == 13
         return if event.shiftKey
