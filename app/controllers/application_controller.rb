@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :set_locale
-  rescue_from Exception, with: :catch_exceptions if Rails.env.production?
 
   private
   def set_locale
@@ -14,16 +13,6 @@ class ApplicationController < ActionController::Base
     return unless user_signed_in?
     return if current_user.locale == I18n.locale.to_s
     current_user.update_column(:locale, I18n.locale.to_s)
-  end
-
-  def catch_exceptions(e)
-    logger.error e.to_yaml
-        e.backtrace.each { |line| logger.error line }
-    if params[:controller] == "user" && params[:action] == "show"
-      render layout: false, file: "#{Rails.root}/public/404", status: 404, format:  :html
-    else
-      render layout: false, file: "#{Rails.root}/public/500", status: 500, format: :html
-    end
   end
 
   def extract_locale_from_accept_language_header
