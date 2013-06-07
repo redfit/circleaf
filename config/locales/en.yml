@@ -9,6 +9,8 @@ en:
       new: 'New group'
       join: 'Join the group'
       leave: 'Leave the group'
+    posts:
+      index: 'Comunication room'
   group:
     level:
       labels:
