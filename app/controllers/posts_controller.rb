@@ -15,10 +15,11 @@ class PostsController < ApplicationController
     @post = @group.posts.new(post_params)
     @post.user = current_user
     @post.save
-    if request.xhr?
-      head(:ok)
-    else
-      redirect_to group_posts_path(@group)
+    respond_to do |format|
+      format.js
+      format.html do
+        redirect_to group_posts_path(@group)
+      end
     end
   end
 

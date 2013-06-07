@@ -21,3 +21,9 @@ Fill in api credential
 ```
 $ foreman start -f Procfile.development
 ```
+
+## heroku
+
+```
+heroku addons:add pusher:sandbox
+```

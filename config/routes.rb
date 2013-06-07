@@ -8,5 +8,6 @@ IshikitakaiCom::Application.routes.draw do
     resource :memberships, only: [:create, :destroy]
     resources :posts, only: [:index, :show, :create, :update, :destroy], shallow: true
   end
+  post 'pusher/authentication' => 'pushers#authentication'
   root 'pages#index'
 end

@@ -4,7 +4,10 @@
   - @posts.each do |post|
     %li.media= render('post', post: post)
 
-= simple_form_for([@group, Post.new], html: {class: 'form-inline'}) do |f|
-  = f.input(:content, label: false, input_html: {class: 'span12'}, autocomplete: 'off')
+.progress.progress-striped.active{:style => "display: none;"}
+  .bar{:style => "width: 100%;"}
+%ul.unstyled.member
+
+= simple_form_for([@group, Post.new], html: {class: 'form-inline'}, remote: true) do |f|
+  = f.input(:content, label: false, input_html: {class: 'span12 auto_clear'}, autocomplete: 'off')
   = f.submit(t('.submit'), class: 'btn btn-primary')
-  
