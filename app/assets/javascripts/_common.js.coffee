@@ -8,3 +8,5 @@ jQuery ->
       $(this).find(find_key).removeAttr "readonly"
       $(this).find(find_key).val ""
     return
+
+  window.App = {}
