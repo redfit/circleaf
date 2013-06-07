@@ -4,6 +4,7 @@ en:
   nav:
     common:
       cancel: 'Cancel'
+      logout: 'Logout'
     groups:
       new: 'New group'
       join: 'Join the group'

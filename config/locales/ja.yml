@@ -4,6 +4,7 @@ ja:
   nav:
     common:
       cancel: 'キャンセル'
+      logout: 'ログアウト'
     groups:
       new: '新規作成'
       join: '加入する'
