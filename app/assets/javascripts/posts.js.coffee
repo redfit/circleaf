@@ -29,7 +29,7 @@ class Post
         return if event.shiftKey
         $(@).parent().submit()
 
-    $('ul.posts a').on 'click', (event) ->
+    $('ul.posts .content a').on 'click', (event) ->
       event.preventDefault()
       url = $(@).attr('href')
       window.open url
