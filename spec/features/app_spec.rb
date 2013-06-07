@@ -8,7 +8,7 @@ describe "Application" do
     end
 
     it 'コンテンツが表示されること', js: true do
-      page.should have_content('Pages#index')
+      page.should have_content('ishikitakai.com')
     end
   end
 end

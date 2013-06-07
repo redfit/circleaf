@@ -4,4 +4,10 @@ body.posts {
       display: inline-block;
     }
   }
+  >div.container-fluid {
+    padding-bottom: 100px;
+  }
+  >footer {
+    position: static;
+  }
 }

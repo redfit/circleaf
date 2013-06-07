@@ -40,7 +40,9 @@ describe "Groups" do
           end
           
           it '自分の名前が表示される' do
-            page.should have_content(user.name)
+            within('ul#member') do
+              page.should have_content(user.name)
+            end
           end
 
           describe '脱退する' do
@@ -53,7 +55,9 @@ describe "Groups" do
             end
             
             it '自分の名前が表示されない' do
-              page.should_not have_content(user.name)
+              within('ul#member') do
+                page.should_not have_content(user.name)
+              end
             end
           end
         end

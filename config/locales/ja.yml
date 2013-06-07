@@ -4,10 +4,13 @@ ja:
   nav:
     common:
       cancel: 'キャンセル'
+      logout: 'ログアウト'
     groups:
       new: '新規作成'
       join: '加入する'
       leave: '脱退する'
+    posts:
+      index: 'コミュニケーションルーム'
   group:
     level:
       labels:

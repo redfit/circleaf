@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.save
     respond_to do |format|
-      format.js
+      format.json { render json: @post.id }
       format.html do
         redirect_to group_posts_path(@group)
       end

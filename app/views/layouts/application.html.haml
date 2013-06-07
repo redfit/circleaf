@@ -10,6 +10,7 @@
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://d3dy5gmtp8yhk7.cloudfront.net/2.0/pusher.min.js'
     = render 'pusher_setting'
     = stylesheet_link_tag "application", :media => "all", 'data-turbolinks-track' => true
     %link(href="favicon.ico" rel="shortcut icon")
@@ -25,6 +26,19 @@
             %span.icon-bar
           %a.brand(href= root_path)
             = t('site_info.title')
+          %ul.menu.nav.pull-right
+            - if user_signed_in?
+              %li.dropdown
+                %a.dropdown-toggle{href: '#', data: {target: '#', toggle: 'dropdown'}}
+                  = image_tag(current_user.image, size: '24x24', class: 'face')
+                  = current_user.name
+                  %b.caret
+                %ul.dropdown-menu{role: 'menu'}
+                  %li
+                    = link_to destroy_user_session_path, method: :delete do
+                      %i.icon-off
+                      = t('nav.common.logout')
+
           .container-fluid.nav-collapse
 
     .container-fluid
