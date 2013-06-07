@@ -29,13 +29,15 @@ class Post
         return if event.shiftKey
         $(@).parent().submit()
 
-    $('form#new_post').submit (event) ->
-      $('.progress').show()
-
     $('ul.posts a').on 'click', (event) ->
       event.preventDefault()
       url = $(@).attr('href')
       window.open url
+
+    $('form#new_post').bind "ajax:success", (e, data) =>
+      if data
+        @fetch(data)
+      return
 
   subscribe: ->
     @channel = pusher.subscribe("presence-group_posts_#{@group_id}")
@@ -62,11 +64,11 @@ class Post
       return
 
   fetch: (id) ->
+    return unless $("ul.posts #post_#{id}").size() == 0
     $.ajax(
       url: '/posts/' + id,
       success: (data) ->
         $('ul.posts').append("<li class='media'>#{data}</li>")
-        $('.progress').hide()
         return
     )
     return true
