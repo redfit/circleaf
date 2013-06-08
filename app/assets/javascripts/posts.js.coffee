@@ -63,11 +63,12 @@ class Post
       $('ul.member').find('[data-class="chat_user"][data-id="' + data.id.toString() + '"]').closest('li').remove()
       return
 
-  fetch: (id) ->
-    return unless $("ul.posts #post_#{id}").size() == 0
+  fetch: (id) =>
+    return if @post_exists(id)
     $.ajax(
       url: '/posts/' + id,
-      success: (data) ->
+      success: (data) =>
+        return if @post_exists(id)
         $('ul.posts').append("<li class='media'>#{data}</li>")
         return
     )
@@ -77,3 +78,6 @@ class Post
     $('ul.member').find('[data-class="chat_user"][data-id="' + member.id.toString() + '"]').closest('li').remove()
     $('ul.member').append(
       '<li><img src="' + member.info.image + '" width="25" height="25" class="face" data-class="chat_user" data-id="' + member.id.toString() + '"></li>')
+
+  post_exists: (id) ->
+    return $("ul.posts #post_#{id}").size()
