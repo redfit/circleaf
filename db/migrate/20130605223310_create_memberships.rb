@@ -3,7 +3,7 @@ class CreateMemberships < ActiveRecord::Migration
     create_table :memberships do |t|
       t.integer :group_id, null: false
       t.integer :user_id, null: false
-      t.string :level, null: false, default: 'member'
+      t.string :scope, null: false, default: 'member'
 
       t.timestamps
     end

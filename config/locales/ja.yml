@@ -12,7 +12,7 @@ ja:
     posts:
       index: 'コミュニケーションルーム'
   group:
-    level:
+    scope:
       labels:
         public: '全体公開'
         private: '秘密'

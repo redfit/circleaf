@@ -1,7 +1,7 @@
 class Membership < ActiveRecord::Base
   extend Enumerize
-  LEVELS = [:owner, :member].freeze
-  enumerize :level, in: self::LEVELS
+  SCOPES = [:owner, :member].freeze
+  enumerize :scope, in: self::SCOPES
 
   belongs_to :group
   belongs_to :user

@@ -31,17 +31,17 @@ ActiveRecord::Schema.define(version: 20130606070911) do
   create_table "groups", force: true do |t|
     t.string   "name",                          null: false
     t.text     "content"
-    t.string   "level",      default: "public", null: false
+    t.string   "scope",      default: "public", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "groups", ["level"], name: "index_groups_on_level"
+  add_index "groups", ["scope"], name: "index_groups_on_scope"
 
   create_table "memberships", force: true do |t|
     t.integer  "group_id",                      null: false
     t.integer  "user_id",                       null: false
-    t.string   "level",      default: "member", null: false
+    t.string   "scope",      default: "member", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

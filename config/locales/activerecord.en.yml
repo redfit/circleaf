@@ -14,7 +14,7 @@ en:
       group:
         name: 'Group name'
         content: 'Group introduction'
-        level: 'Scope of disclosure'
+        scope: 'Scope of disclosure'
       post:
         content: 'Post content'
     errors:
@@ -23,5 +23,5 @@ en:
           attributes:
             name:
               blank: 'Fill group name'
-            level:
+            scope:
               blank: 'Select scope of disclosure'
