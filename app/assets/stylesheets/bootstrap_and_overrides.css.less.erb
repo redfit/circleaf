@@ -3,8 +3,8 @@
 
 // Set the correct sprite paths
 <% if !Rails.env.test? || Figaro.env.test_asset_host.present? %>
-@iconSpritePath: "<%= Rails.application.config.assets.prefix %>/twitter/bootstrap/glyphicons-halflings.png";
-@iconWhiteSpritePath: "<%= Rails.application.config.assets.prefix %>/twitter/bootstrap/glyphicons-halflings-white.png";
+@iconSpritePath: "/twitter/bootstrap/glyphicons-halflings.png";
+@iconWhiteSpritePath: "/twitter/bootstrap/glyphicons-halflings-white.png";
 @import "twitter/bootstrap/sprites.less";
 <% end %>
 
