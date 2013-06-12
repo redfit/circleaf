@@ -3,10 +3,10 @@ class CreateGroups < ActiveRecord::Migration
     create_table :groups do |t|
       t.string :name, null: false
       t.text :content
-      t.string :level, null: false, default: 'public'
+      t.string :scope, null: false, default: 'public'
 
       t.timestamps
     end
-    add_index :groups, [:level]
+    add_index :groups, [:scope]
   end
 end

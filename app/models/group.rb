@@ -1,17 +1,17 @@
 class Group < ActiveRecord::Base
   extend Enumerize
-  include Levelable
-  LEVELS = [:public, :private].freeze
-  enumerize :level, in: self::LEVELS
+  include Scopable
+  SCOPES = [:public, :private].freeze
+  enumerize :scope, in: self::SCOPES
 
   has_many :memberships
   has_many :users, through: :memberships
   has_many :posts
 
-  validates_presence_of :name, :level
+  validates_presence_of :name, :scope
 
-  def join(user, level = 'member')
-    user.memberships.create(group_id: self.id, level: level) unless user.groups.include?(self)
+  def join(user, scope = 'member')
+    user.memberships.create(group_id: self.id, scope: scope) unless user.groups.include?(self)
   end
 
   def leave(user)

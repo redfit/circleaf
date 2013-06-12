@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :group, class: 'Group' do
     name Faker::Name.name
     content Faker::Lorem.paragraph
-    level 'public'
+    scope 'public'
   end
 end

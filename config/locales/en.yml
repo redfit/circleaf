@@ -12,7 +12,7 @@ en:
     posts:
       index: 'Comunication room'
   group:
-    level:
+    scope:
       labels:
         public: 'Public'
         private: 'Private'
