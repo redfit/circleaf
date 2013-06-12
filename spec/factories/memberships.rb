@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :membership, class: 'Membership' do
-    scope 'member'
+    level 'member'
   end
 end

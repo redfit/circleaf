@@ -17,12 +17,12 @@ describe Group do
 
   describe '#join' do
     before do
-      group.join(user, scope)
+      group.join(user, level)
     end
-    Membership::SCOPES.each do |l|
+    Membership::LEVELS.each do |l|
       context "#{l.to_s}として加入する場合" do
-        let(:scope) { l.to_s }
-        it { group.membership_for(user).scope.should eq scope }
+        let(:level) { l.to_s }
+        it { group.membership_for(user).level.should eq level }
       end
     end
   end
