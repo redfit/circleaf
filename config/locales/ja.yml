@@ -11,8 +11,8 @@ ja:
       leave: '脱退する'
     posts:
       index: 'コミュニケーションルーム'
-  group:
-    scope:
-      labels:
+  enumerize:
+    group:
+      privacy:
         public: '全体公開'
         private: '秘密'

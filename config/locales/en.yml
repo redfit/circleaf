@@ -11,8 +11,8 @@ en:
       leave: 'Leave the group'
     posts:
       index: 'Comunication room'
-  group:
-    scope:
-      labels:
+  enumerize:
+    group:
+      privacy:
         public: 'Public'
         private: 'Private'

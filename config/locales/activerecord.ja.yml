@@ -14,7 +14,7 @@ ja:
       group:
         name: 'グループ名'
         content: 'グループ詳細'
-        scope: '公開範囲'
+        privacy_scope: '公開範囲'
       post:
         content: '投稿内容'
     errors:
@@ -23,5 +23,5 @@ ja:
           attributes:
             name:
               blank: 'グループ名を入力して下さい'
-            scope:
+            privacy_scope:
               blank: '公開範囲を選択して下さい'
