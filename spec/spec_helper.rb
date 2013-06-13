@@ -3,7 +3,6 @@ require 'rubygems'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 
 # Load all railties files
 Rails.application.railties.to_a { |r| r.eager_load! }
@@ -80,6 +79,7 @@ RSpec.configure do |config|
 
   # factory_girl
   config.include FactoryGirl::Syntax::Methods
-
-  FactoryGirl.reload
+  config.before(:all) do
+    FactoryGirl.reload
+  end
 end
