@@ -3,8 +3,15 @@ en:
     title: '#ishikitakai'
   nav:
     common:
+      back: 'Back'
       cancel: 'Cancel'
-      logout: 'Logout'
+      new: 'New'
+      edit: 'Edit'
+      show: 'Detail'
+      delete: 'Delete'
+      delete_confirm: 'Really delete it?'
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
     groups:
       new: 'New group'
       join: 'Join the group'

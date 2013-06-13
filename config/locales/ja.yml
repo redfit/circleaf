@@ -3,8 +3,15 @@ ja:
     title: '#ishikitakai'
   nav:
     common:
+      back: '戻る'
       cancel: 'キャンセル'
-      logout: 'ログアウト'
+      new: '新規'
+      edit: '編集'
+      show: '詳細'
+      delete: '削除'
+      delete_confirm: '削除してよろしいでしょうか？'
+      sign_in: 'ログインする'
+      sign_out: 'ログアウト'
     groups:
       new: '新規作成'
       join: '加入する'
