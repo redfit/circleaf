@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130606070911) do
+ActiveRecord::Schema.define(version: 20130613003536) do
 
   create_table "connections", force: true do |t|
     t.integer  "user_id",      null: false
@@ -27,6 +27,29 @@ ActiveRecord::Schema.define(version: 20130606070911) do
 
   add_index "connections", ["provider", "uid"], name: "index_connections_on_provider_and_uid", unique: true
   add_index "connections", ["user_id"], name: "index_connections_on_user_id"
+
+  create_table "events", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id",                             null: false
+    t.string   "privacy_scope",    default: "public", null: false
+    t.string   "name",                                null: false
+    t.text     "content"
+    t.text     "summary"
+    t.text     "place_url"
+    t.string   "place_name"
+    t.string   "place_address"
+    t.string   "place_map_url"
+    t.integer  "capacity_min"
+    t.integer  "capacity_max"
+    t.datetime "begin_at"
+    t.datetime "end_at"
+    t.datetime "receive_begin_at"
+    t.datetime "receive_end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["group_id"], name: "index_events_on_group_id"
 
   create_table "groups", force: true do |t|
     t.string   "name",                             null: false
