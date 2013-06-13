@@ -13,6 +13,6 @@ ja:
       index: 'コミュニケーションルーム'
   enumerize:
     group:
-      privacy:
+      privacy_scope:
         public: '全体公開'
         private: '秘密'

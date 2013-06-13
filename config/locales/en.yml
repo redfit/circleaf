@@ -13,6 +13,6 @@ en:
       index: 'Comunication room'
   enumerize:
     group:
-      privacy:
+      privacy_scope:
         public: 'Public'
         private: 'Private'
