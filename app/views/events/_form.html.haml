@@ -1,0 +1,25 @@
+= simple_form_for(model, html: {class: 'form-horizontal'}) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input(:privacy_scope, collection: Event.privacy_scope.options)
+    = f.input(:name)
+    = f.input(:summary)
+    = f.input(:content)
+    = f.input(:place_url)
+    = f.input(:place_name)
+    = f.input(:place_address)
+    = f.input(:place_map_url)
+    = f.input(:capacity_max)
+    = f.input(:begin_at) do
+      .input-append.date.pick_datetime
+        = f.input_field :begin_at, as: :string
+        %span.add-on
+          %i.icon-time
+    = f.input(:end_at) do
+      .input-append.date.pick_datetime
+        = f.input_field :end_at, as: :string
+        %span.add-on
+          %i.icon-time
+
+  .form-actions
+    = f.button :submit

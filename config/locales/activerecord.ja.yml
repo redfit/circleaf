@@ -4,6 +4,7 @@ ja:
       user: 'ユーザー'
       group: 'グループ'
       post: '投稿'
+      event: 'イベント'
     attributes:
       user:
         name: 'ユーザー名'
@@ -17,6 +18,19 @@ ja:
         privacy_scope: '公開範囲'
       post:
         content: '投稿内容'
+      event:
+        privacy_scope: '公開範囲'
+        name: 'イベント名'
+        summary: 'イベント概要'
+        content: 'イベント詳細'
+        place_name: '開催場所'
+        place_url: '開催場所URL'
+        place_address: '住所'
+        place_map_url: '地図URL'
+        capacity_max: '募集人数'
+        begin_at: '開始日時'
+        end_at: '終了日時'
+        date: '開催日'
     errors:
       models:
         group:

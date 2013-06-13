@@ -1,0 +1,8 @@
+ja:
+  events:
+    index:
+      empty: 'イベントがありません'
+      created: 'イベントを作成しました'
+      destroyed: 'イベントを作成しました'
+    show:
+      updated: 'イベントを更新しました'

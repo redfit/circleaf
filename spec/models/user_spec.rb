@@ -11,6 +11,7 @@ describe User do
 
   describe 'relations' do
     it { should have_many(:connections) }
+    it { should have_many(:events).through(:attendances) }
   end
 
   describe '.authentication' do

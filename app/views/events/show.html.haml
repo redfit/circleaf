@@ -1,0 +1,10 @@
+%ul.breadcrumb
+  %li
+    = link_to(@event.group.name, group_path(@event.group))
+    %span.divider /
+  %li.active
+    = @event.name
+
+%h1= @event.name
+
+= @event.date

@@ -1,18 +1,34 @@
 en:
+  date:
+    long: "%H:%M %d %b %Y"
+    short: "%d %b %Y"
+    day: "%{begin_time} - %{end_time} %{begin_date}"
+    days: "%{begin_time} %{begin_date} - %{end_time} %{end_date}"
+  time:
+    long: "%H:%M:%s"
+    short: "%H:%M"
   site_info:
     title: '#ishikitakai'
   nav:
     common:
+      back: 'Back'
       cancel: 'Cancel'
-      logout: 'Logout'
+      new: 'New'
+      edit: 'Edit'
+      show: 'Detail'
+      delete: 'Delete'
+      delete_confirm: 'Really delete it?'
+      sign_in: 'Sign in'
+      sign_out: 'Sign out'
     groups:
       new: 'New group'
       join: 'Join the group'
       leave: 'Leave the group'
     posts:
       index: 'Comunication room'
+    events:
+      index: 'Event list'
   enumerize:
-    group:
-      privacy_scope:
-        public: 'Public'
-        private: 'Private'
+    privacy_scope:
+      public: 'Public'
+      private: 'Private'
