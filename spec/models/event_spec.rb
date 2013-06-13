@@ -15,6 +15,9 @@ describe Event do
     it { should belong_to(:user) }
     it { should belong_to(:group) }
     it { should have_many(:users).through(:attendances) }
+    it { should have_many(:attend_users).through(:attend_attendances) }
+    it { should have_many(:pending_users).through(:pending_attendances) }
+    it { should have_many(:cancel_users).through(:cancel_attendances) }
   end
 
   describe 'イベント参加・キャンセル' do
