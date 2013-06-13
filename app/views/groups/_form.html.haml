@@ -3,7 +3,7 @@
   .form-inputs
     = f.input(:name)
     = f.input(:content)
-    = f.input(:scope, collection: Group.scope_collection)
+    = f.input(:privacy_scope, collection: Group.privacy_scope.options)
   .form-actions
     = f.submit(nil, class: 'btn btn-primary')
     = link_to(t('nav.common.cancel'), groups_path, class: 'btn')

@@ -1,6 +1,6 @@
 class Membership < ActiveRecord::Base
   extend Enumerize
-  include Levelable
+  extend ActiveModel::Naming
   LEVELS = [:owner, :member].freeze
   enumerize :level, in: self::LEVELS
 

@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(version: 20130606070911) do
   add_index "connections", ["user_id"], name: "index_connections_on_user_id"
 
   create_table "groups", force: true do |t|
-    t.string   "name",                          null: false
+    t.string   "name",                             null: false
     t.text     "content"
-    t.string   "scope",      default: "public", null: false
+    t.string   "privacy_scope", default: "public", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "groups", ["scope"], name: "index_groups_on_scope"
+  add_index "groups", ["privacy_scope"], name: "index_groups_on_privacy_scope"
 
   create_table "memberships", force: true do |t|
     t.integer  "group_id",                      null: false

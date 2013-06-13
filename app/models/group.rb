@@ -1,14 +1,14 @@
 class Group < ActiveRecord::Base
   extend Enumerize
-  include Scopable
-  SCOPES = [:public, :private].freeze
-  enumerize :scope, in: self::SCOPES
+  extend ActiveModel::Naming
+  PRIVACY_SCOPES = [:public, :private].freeze
+  enumerize :privacy_scope, in: self::PRIVACY_SCOPES
 
   has_many :memberships
   has_many :users, through: :memberships
   has_many :posts
 
-  validates_presence_of :name, :scope
+  validates_presence_of :name, :privacy_scope
 
   def join(user, level = 'member')
     user.memberships.create(group_id: self.id, level: level) unless user.groups.include?(self)

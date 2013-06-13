@@ -89,7 +89,7 @@ describe "Groups" do
             before do
               find('#group_name').set(new_group.name)
               find('#group_content').set(new_group.content)
-              select(Group.label(new_group.scope), from: 'group_scope')
+              select(new_group.privacy_scope_text, from: 'group_privacy_scope')
               find('form#new_group input[type=submit]').click()
             end
 
