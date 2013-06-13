@@ -1,0 +1,8 @@
+en:
+  events:
+    index:
+      empty: 'Event not found'
+      created: 'Created event'
+      destroyed: 'Destroyed event'
+    show:
+      updated: 'Updated event'

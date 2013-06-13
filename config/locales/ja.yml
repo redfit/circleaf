@@ -1,4 +1,12 @@
 ja:
+  date:
+    long: "%Y年%m月%d日 %H:%M"
+    short: "%Y年%m月%d日"
+    day: "%{begin_date} %{begin_time} 〜 %{end_time}"
+    days: "%{begin_date} %{begin_time} 〜 %{end_date} %{end_time}"
+  time:
+    long: "%H:%M:%s"
+    short: "%H:%M"
   site_info:
     title: '#ishikitakai'
   nav:
@@ -18,8 +26,9 @@ ja:
       leave: '脱退する'
     posts:
       index: 'コミュニケーションルーム'
+    events:
+      index: 'イベント一覧'
   enumerize:
-    group:
-      privacy_scope:
-        public: '全体公開'
-        private: '秘密'
+    privacy_scope:
+      public: '全体公開'
+      private: '秘密'

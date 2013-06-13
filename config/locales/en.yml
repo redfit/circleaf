@@ -1,4 +1,12 @@
 en:
+  date:
+    long: "%H:%M %d %b %Y"
+    short: "%d %b %Y"
+    day: "%{begin_time} - %{end_time} %{begin_date}"
+    days: "%{begin_time} %{begin_date} - %{end_time} %{end_date}"
+  time:
+    long: "%H:%M:%s"
+    short: "%H:%M"
   site_info:
     title: '#ishikitakai'
   nav:
@@ -18,8 +26,9 @@ en:
       leave: 'Leave the group'
     posts:
       index: 'Comunication room'
+    events:
+      index: 'Event list'
   enumerize:
-    group:
-      privacy_scope:
-        public: 'Public'
-        private: 'Private'
+    privacy_scope:
+      public: 'Public'
+      private: 'Private'

@@ -4,6 +4,7 @@ en:
       user: 'User'
       group: 'Group'
       post: 'Post'
+      event: 'Event'
     attributes:
       user:
         name: 'User name'
@@ -17,6 +18,19 @@ en:
         privacy_scope: 'Group privacy'
       post:
         content: 'Post content'
+      event:
+        privacy_scope: 'Event privacy'
+        name: 'Name'
+        summary: 'Summary'
+        content: 'Event content'
+        place_name: 'Place'
+        place_url: 'URL'
+        place_address: 'Address'
+        place_map_url: 'Map URL'
+        capacity_max: 'Capacity'
+        begin_at: 'Begin At'
+        end_at: 'End At'
+        date: 'Date'
     errors:
       models:
         group:
