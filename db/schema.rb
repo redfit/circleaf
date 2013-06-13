@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20130606070911) do
   create_table "memberships", force: true do |t|
     t.integer  "group_id",                      null: false
     t.integer  "user_id",                       null: false
-    t.string   "scope",      default: "member", null: false
+    t.string   "level",      default: "member", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

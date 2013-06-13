@@ -1,7 +1,8 @@
 class Membership < ActiveRecord::Base
   extend Enumerize
-  SCOPES = [:owner, :member].freeze
-  enumerize :scope, in: self::SCOPES
+  include Levelable
+  LEVELS = [:owner, :member].freeze
+  enumerize :level, in: self::LEVELS
 
   belongs_to :group
   belongs_to :user

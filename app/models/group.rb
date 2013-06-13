@@ -10,8 +10,8 @@ class Group < ActiveRecord::Base
 
   validates_presence_of :name, :scope
 
-  def join(user, scope = 'member')
-    user.memberships.create(group_id: self.id, scope: scope) unless user.groups.include?(self)
+  def join(user, level = 'member')
+    user.memberships.create(group_id: self.id, level: level) unless user.groups.include?(self)
   end
 
   def leave(user)
