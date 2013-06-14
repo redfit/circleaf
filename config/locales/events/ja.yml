@@ -6,3 +6,6 @@ ja:
       destroyed: 'イベントを作成しました'
     show:
       updated: 'イベントを更新しました'
+      attend_attendances: '参加者'
+      pending_attendances: 'キャンセル待ち'
+      cancel_attendances: 'キャンセル'

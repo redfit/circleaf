@@ -5,6 +5,25 @@
   %li.active
     = @event.name
 
-%h1= @event.name
-
-= @event.date
+.row-fluid
+  .span9
+    %h1= @event.name
+    = @event.date
+  .span3
+    .form-actions
+      = @event.link_join_or_leave(current_user)
+    .label
+      = @event.attendances.count - @event.cancel_attendances.count
+    \/
+    .label
+      = @event.capacity_max
+    - [:attend, :pending, :cancel].each do |status|
+      - key = "#{status}_attendances"
+      - users = @event.try("#{status}_users")
+      - if users.present?
+        .section
+          %h4= t(".#{key}")
+          %ul.unstyled{id: key}
+            = content_tag_for :li, users.each do |user|
+              = image_tag(user.image, class: 'img-polaroid')
+              = user.name

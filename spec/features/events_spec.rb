@@ -93,6 +93,42 @@ describe 'Events' do
           it 'イベント詳細ページへ遷移すること' do
             page.current_path.should eq event_path(event)
           end
+
+          describe 'イベント参加' do
+            let(:attend_count) { 0 }
+            before do
+              Event.any_instance.stub_chain(:attend_attendances, :count).and_return { attend_count }
+              find('.join_btn').click()
+            end
+
+            context '余裕がある場合' do
+              it '参加者一覧に載る' do
+                within('ul#attend_attendances') do
+                  page.should have_content(user.name)
+                end
+              end
+            end
+
+            context '余裕がない場合' do
+              let(:attend_count) { 11 }
+              it 'キャンセル待ち一覧に載る' do
+                within('ul#pending_attendances') do
+                  page.should have_content(user.name)
+                end
+              end
+            end
+
+            describe 'イベントキャンセル' do
+              before do
+                find('.leave_btn').click()
+              end
+              it 'キャンセル一覧に載る' do
+                within('ul#cancel_attendances') do
+                  page.should have_content(user.name)
+                end
+              end
+            end
+          end
         end
       end
 
@@ -109,6 +145,7 @@ describe 'Events' do
           before do
             find('#event_name').set(new_event.name)
             find('#event_content').set(new_event.content)
+            find('#event_capacity_max').set(new_event.capacity_max)
             find('#event_begin_at').set(new_event.begin_at)
             find('#event_end_at').set(new_event.end_at)
             find('input[type=submit]').click()

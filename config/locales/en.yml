@@ -28,6 +28,8 @@ en:
       index: 'Comunication room'
     events:
       index: 'Event list'
+      join: 'Attend'
+      leave: 'Cancel'
   enumerize:
     privacy_scope:
       public: 'Public'
