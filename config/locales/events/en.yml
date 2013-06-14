@@ -6,3 +6,7 @@ en:
       destroyed: 'Destroyed event'
     show:
       updated: 'Updated event'
+      attendances: 'Attendances'
+      attend_attendances: 'Attend'
+      pending_attendances: 'Pending'
+      cancel_attendances: 'Cancel'
