@@ -18,6 +18,7 @@ describe Event do
     it { should have_many(:attend_users).through(:attend_attendances) }
     it { should have_many(:pending_users).through(:pending_attendances) }
     it { should have_many(:cancel_users).through(:cancel_attendances) }
+    it { should have_one(:post) }
   end
 
   describe 'イベント参加・キャンセル' do

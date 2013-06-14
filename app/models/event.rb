@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   has_many :pending_users, through: :pending_attendances, source: :user
   has_many :cancel_attendances, -> { where(status: 'cancel').order(updated_at: :asc, id: :asc) }, class_name: 'Attendance'
   has_many :cancel_users, through: :cancel_attendances, source: :user
+  has_one :post, as: :postable
 
   validates_presence_of :user, :name, :begin_at, :end_at, :capacity_max
 
