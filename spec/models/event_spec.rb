@@ -42,6 +42,13 @@ describe Event do
         let(:capacity_max) { 10 }
         let(:attendances_count) { 10 }
         it { subject.status.should eq 'pending' }
+
+        describe '参加可能人数を増やす' do
+          before do
+            event.update_attributes(capacity_max: capacity_max + 1)
+          end
+          it { subject.status.should eq 'attend' }
+        end
       end
     end
 

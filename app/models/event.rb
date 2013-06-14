@@ -18,6 +18,7 @@ class Event < ActiveRecord::Base
   validates_presence_of :user, :name, :begin_at, :end_at, :capacity_max
 
   after_initialize :format_date
+  after_update :update_attendances
 
   def join(user)
     attendance = user.attendances.find_or_initialize_by(event_id: self.id)
@@ -39,6 +40,16 @@ class Event < ActiveRecord::Base
   def format_date
     [:begin_at, :end_at].each do |d|
       self[d] = self[d].try(:strftime, '%Y-%m-%d %H:%M')
+    end
+  end
+
+  def update_attendances
+    if capacity_max_changed? && capacity_max > capacity_max_was
+      # capacity_maxが増えていれば繰り上がりの可能性がある
+      diff = capacity_max - capacity_max_was
+      self.pending_attendances.limit(diff).each do |attendance|
+        attendance.update_attributes(status: 'attend')
+      end
     end
   end
 end
