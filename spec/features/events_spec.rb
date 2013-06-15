@@ -127,6 +127,25 @@ describe 'Events' do
                   page.should have_content(user.name)
                 end
               end
+              it '参加ボタンが表示される' do
+                page.should have_css('.join_btn')
+              end
+            end
+          end
+
+          describe 'コメント' do
+            let(:new_comment) { build(:comment) }
+            before do
+              find('#comment_content').set(new_comment.content)
+              find('form#new_comment input[type=submit]').click()
+            end
+            it 'メッセージが表示されること' do
+              page.should have_content(I18n.t('comments.created'))
+            end
+            it '新しいイベントが表示されること' do
+              within('ul.comments') do
+                page.should have_content(new_comment.content)
+              end
             end
           end
         end

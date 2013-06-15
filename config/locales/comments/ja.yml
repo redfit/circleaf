@@ -1,0 +1,7 @@
+ja:
+  comments:
+    created: 'コメントしました'
+    updated: 'コメントを更新しました'
+    destroyed: 'コメントを削除しました'
+    comment:
+      delete: 'このコメントを削除'

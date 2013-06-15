@@ -20,10 +20,12 @@ en:
       delete_confirm: 'Really delete it?'
       sign_in: 'Sign in'
       sign_out: 'Sign out'
+      post: 'Post'
     groups:
       new: 'New group'
       join: 'Join the group'
       leave: 'Leave the group'
+      show: 'Group Detail'
     posts:
       index: 'Comunication room'
     events:

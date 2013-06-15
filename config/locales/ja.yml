@@ -20,10 +20,12 @@ ja:
       delete_confirm: '削除してよろしいでしょうか？'
       sign_in: 'ログインする'
       sign_out: 'ログアウト'
+      post: '投稿する'
     groups:
       new: '新規作成'
       join: '加入する'
       leave: '脱退する'
+      show: 'グループ詳細'
     posts:
       index: 'コミュニケーションルーム'
     events:

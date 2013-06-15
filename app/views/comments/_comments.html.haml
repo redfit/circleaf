@@ -1,0 +1,3 @@
+%ul.media-list.comments
+  = content_tag_for(:li, comments, class: 'media') do |comment|
+    = render('comments/comment', comment: comment)

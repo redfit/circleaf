@@ -1,3 +1,4 @@
+= render('groups/menu')
 %ul.breadcrumb
   %li
     = link_to(@event.group.name, group_path(@event.group))
@@ -9,6 +10,9 @@
   .span9
     %h1= @event.name
     = @event.date
+    %hr
+    = render('comments/comments', comments: @event.comments)
+    = render('comments/form', commentable: @event, comment: @event.comments.new)
   .span3
     .form-actions
       = @event.link_join_or_leave(current_user)

@@ -22,9 +22,9 @@ module EventDecorator
   def link_join_or_leave(current_user)
     return unless current_user
     status = self.attendance_for(current_user).try(:status)
-    if %w(attend cancel).include?(status)
+    if %w(attend pending).include?(status)
       link_to event_attendances_path(self), method: :delete, class: 'leave_btn btn btn-danger btn-block' do
-        t('nav.eventss.leave') 
+        t('nav.events.leave')
       end
     else
       link_to event_attendances_path(self), method: :post, class: 'join_btn btn btn-primary btn-block' do

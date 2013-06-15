@@ -1,0 +1,7 @@
+en:
+  comments:
+    created: 'Posted comment'
+    updated: 'Update comment'
+    destroyed: 'Destroyed comment'
+    comment:
+      delete: 'Delete this post'
