@@ -25,6 +25,7 @@ en:
       new: 'New group'
       join: 'Join the group'
       leave: 'Leave the group'
+      show: 'Group Detail'
     posts:
       index: 'Comunication room'
     events:

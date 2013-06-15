@@ -2,6 +2,6 @@
 %h2= link_to(event.name, event_path(event))
 .event_content
   = event.content
-%ul
+%ul.unstyled.users
   - event.attend_users.each do|user|
-    %li= image_tag(user.image)
+    %li= image_tag(user.image, class: 'face')

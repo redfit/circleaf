@@ -1,1 +1,3 @@
-= post.postable.content
+= link_to(event_path(post.postable.commentable)) do
+  %i.icon-comment
+  = post.postable.content

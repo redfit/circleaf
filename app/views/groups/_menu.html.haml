@@ -1,4 +1,5 @@
+%h1= @group.name
 = render_list(class: 'nav nav-tabs') do |li|
-  - li << link_to(@group.name, group_path(@group))
+  - li << link_to(t('nav.groups.show'), group_path(@group))
   - li << link_to(t('nav.posts.index'), group_posts_path(@group))
   - li << link_to(t('nav.events.index'), group_events_path(@group))

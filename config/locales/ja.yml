@@ -25,6 +25,7 @@ ja:
       new: '新規作成'
       join: '加入する'
       leave: '脱退する'
+      show: 'グループ詳細'
     posts:
       index: 'コミュニケーションルーム'
     events:

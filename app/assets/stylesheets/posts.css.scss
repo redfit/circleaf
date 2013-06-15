@@ -11,3 +11,29 @@ body.posts {
     position: static;
   }
 }
+
+section.post {
+  &[data-postable-type="Event"] {
+    h2 {
+      border-bottom: 3px double #ddd;
+      margin-top: 0;
+    }
+    ul.users {
+      >li {
+        display: inline-block;
+        img.face {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  div.name {
+    img.face {
+      width: 20px;
+      height: 20px;
+    }
+    margin-right: 20px;
+  }
+}
