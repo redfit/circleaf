@@ -20,6 +20,7 @@ class Event < ActiveRecord::Base
 
   after_initialize :format_date
   after_update :update_attendances
+  after_create :create_post
 
   def join(user)
     attendance = user.attendances.find_or_initialize_by(event_id: self.id)
@@ -52,5 +53,10 @@ class Event < ActiveRecord::Base
         attendance.update_attributes(status: 'attend')
       end
     end
+  end
+
+  def create_post
+    return unless self.group_id
+    self.post = self.user.posts.create(group_id: self.group_id, content: 'see events.content')
   end
 end
