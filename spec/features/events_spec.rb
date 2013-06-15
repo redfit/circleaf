@@ -161,6 +161,19 @@ describe 'Events' do
               page.should have_content(new_event.name)
             end
           end
+
+          describe 'コミュニケーションルームへ移動' do
+            let(:latest_event) { Event.last }
+            before do
+              visit group_posts_path(group)
+            end
+
+            it 'イベント告知が投稿されていること' do
+              within("[data-postable-type='Event'][data-postable-id='#{latest_event.id}']") do
+                page.should have_content(new_event.name)
+              end
+            end
+          end
         end
 
         context 'フォームを埋めない場合' do

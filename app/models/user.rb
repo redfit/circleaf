@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :groups, through: :memberships
   has_many :attendances
   has_many :events, through: :attendances
+  has_many :posts
 
   class << self
     def authentication(auth_hash, current_user = nil)

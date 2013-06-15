@@ -9,6 +9,7 @@ describe Post do
   describe 'relations' do
     it { should belong_to(:group) }
     it { should belong_to(:user) }
+    it { should belong_to(:postable) }
   end
 
   describe '投稿を作成出来る' do

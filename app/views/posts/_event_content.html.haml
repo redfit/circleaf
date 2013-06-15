@@ -1,0 +1,7 @@
+- event = post.postable
+%h2= link_to(event.name, event_path(event))
+.event_content
+  = event.content
+%ul
+  - event.attend_users.each do|user|
+    %li= image_tag(user.image)

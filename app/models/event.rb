@@ -14,11 +14,13 @@ class Event < ActiveRecord::Base
   has_many :pending_users, through: :pending_attendances, source: :user
   has_many :cancel_attendances, -> { where(status: 'cancel').order(updated_at: :asc, id: :asc) }, class_name: 'Attendance'
   has_many :cancel_users, through: :cancel_attendances, source: :user
+  has_one :post, as: :postable
 
   validates_presence_of :user, :name, :begin_at, :end_at, :capacity_max
 
   after_initialize :format_date
   after_update :update_attendances
+  after_create :create_post
 
   def join(user)
     attendance = user.attendances.find_or_initialize_by(event_id: self.id)
@@ -51,5 +53,10 @@ class Event < ActiveRecord::Base
         attendance.update_attributes(status: 'attend')
       end
     end
+  end
+
+  def create_post
+    return unless self.group_id
+    self.post = self.user.posts.create(group_id: self.group_id, content: 'see events.content')
   end
 end

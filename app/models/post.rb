@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :content
   belongs_to :group
   belongs_to :user
+  belongs_to :postable, polymorphic: true
 
   after_create :post_to_pusher
 
