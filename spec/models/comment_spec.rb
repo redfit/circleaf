@@ -14,5 +14,6 @@ describe Comment do
   describe 'relations' do
     it { should belong_to(:commentable) }
     it { should belong_to(:user) }
+    it { should have_one(:post) }
   end
 end

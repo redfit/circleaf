@@ -1,0 +1,14 @@
+%section.comment[comment]
+  %div.pull-left
+    %div.name
+      = image_tag(comment.user.image, class: 'media-object')
+      %span= comment.user.name
+  %div.media-body
+    %div.content
+      = simple_format(comment.content)
+    %div.pull-right.info
+      %span.muted.created_at
+        = comment.created_at
+      %span.action
+        %span.destroy
+          = link_to(t('.delete'), comment_path(comment), method: :delete)
