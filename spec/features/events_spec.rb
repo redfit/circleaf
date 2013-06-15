@@ -127,6 +127,9 @@ describe 'Events' do
                   page.should have_content(user.name)
                 end
               end
+              it '参加ボタンが表示される' do
+                page.should have_css('.join_btn')
+              end
             end
           end
 
