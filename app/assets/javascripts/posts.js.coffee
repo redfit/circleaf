@@ -39,6 +39,9 @@ class Post
         @fetch(data)
       return
 
+    $('form#new_post').bind "submit", (e) =>
+      $('#wmd-preview').html('')
+
   subscribe: ->
     @channel = pusher.subscribe("presence-group_posts_#{@group_id}")
 

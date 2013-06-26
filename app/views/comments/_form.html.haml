@@ -1,3 +1,6 @@
-= simple_form_for([commentable, comment], html: {class: 'form-inline'}) do |f|
-  = f.input(:content, label: false, input_html: {class: 'span12 auto_clear'}, autocomplete: 'off')
-  = f.submit(t('nav.common.post'), class: 'btn')
+.wmd-panel
+  #wmd-button-bar
+  = simple_form_for([commentable, comment], html: {class: 'form-inline'}) do |f|
+    = f.input(:content, label: false, input_html: {style: 'height: 3.0em;', id: 'wmd-input', class: 'span12 auto_clear wmd-input'}, autocomplete: 'off')
+    = f.submit(t('nav.common.post'), class: 'btn')
+    #wmd-preview.wmd-panel.wmd-preview.well
