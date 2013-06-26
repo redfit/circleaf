@@ -1,4 +1,7 @@
 class Comment < ActiveRecord::Base
+  include Markdownable
+  markdownable :content
+
   belongs_to :commentable, polymorphic: true
   belongs_to :user
   has_one :post, as: :postable

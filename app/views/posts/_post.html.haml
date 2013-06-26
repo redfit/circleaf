@@ -6,7 +6,8 @@
   %div.media-body
     %div.content
       - if post.postable_type.nil?
-        = simple_format(post.content)
+        = preserve do
+          = post.content_markdown.html_safe
       - else
         = render("#{post.postable_type.downcase}_content", post: post)
     %div.pull-right.info

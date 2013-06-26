@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  include Markdownable
+  markdownable :content
+
   extend Enumerize
   extend ActiveModel::Naming
   PRIVACY_SCOPES = [:public, :private].freeze
