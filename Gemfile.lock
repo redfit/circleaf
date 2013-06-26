@@ -261,6 +261,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    redcarpet (2.3.0)
     ref (1.0.5)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
@@ -359,6 +360,7 @@ DEPENDENCIES
   capistrano-ext
   capistrano_colors
   capybara
+  coderay
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.0.RC1)
   delorean
@@ -389,6 +391,7 @@ DEPENDENCIES
   rails-i18n
   rails_12factor
   rb-fsevent
+  redcarpet
   rspec-rails
   rvm-capistrano
   sass-rails (~> 4.0.0)

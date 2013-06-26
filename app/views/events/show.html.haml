@@ -10,6 +10,9 @@
   .span9
     %h1= @event.name
     = @event.date
+    %section.content
+      = preserve do
+        = @event.content_markdown.html_safe
     %hr
     = render('comments/comments', comments: @event.comments)
     = render('comments/form', commentable: @event, comment: @event.comments.new)

@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  include Markdownable
+  markdownable :content
+
   validates_presence_of :content
   belongs_to :group
   belongs_to :user

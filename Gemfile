@@ -22,6 +22,9 @@ gem 'active_decorator'
 gem 'rails-i18n'
 gem 'pusher'
 gem 'em-http-request'
+gem 'redcarpet'
+gem 'coderay'
+
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0'

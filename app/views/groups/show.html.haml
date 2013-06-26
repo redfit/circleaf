@@ -2,7 +2,8 @@
   .span9
     = render('groups/menu')
     %section.content
-      = simple_format @group.content
+      = preserve do
+        = @group.content_markdown.html_safe
 
   .span3
     %h3= t('.members')

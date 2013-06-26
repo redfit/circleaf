@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include Markdownable
+  markdownable :content
+
   devise :rememberable, :trackable, :omniauthable
   has_many :connections
   has_many :memberships
