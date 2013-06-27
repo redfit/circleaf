@@ -12,6 +12,11 @@ IshikitakaiCom::Application.routes.draw do
       resources :comments, only: [:create, :update, :destroy]
     end
   end
+
+  scope :path => :my do
+    resource :setting, :only => [:show, :edit, :update], :as => :my_setting
+  end
+
   post 'pusher/authentication' => 'pushers#authentication'
   root 'pages#index'
 end
