@@ -15,7 +15,11 @@ IshikitakaiCom::Application.routes.draw do
 
   scope :path => :my do
     resource :setting, :only => [:show, :edit, :update], :as => :my_setting
+    root 'users#show', as: :my_root
   end
+  resource :my, controller: :users, only: [:edit, :update, :destroy]
+  
+  resources :users, only: [:show]
 
   post 'pusher/authentication' => 'pushers#authentication'
   root 'pages#index'
