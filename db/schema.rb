@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130615032336) do
+ActiveRecord::Schema.define(version: 20130627035627) do
 
   create_table "attendances", force: true do |t|
     t.integer  "event_id"
@@ -103,6 +103,18 @@ ActiveRecord::Schema.define(version: 20130615032336) do
   end
 
   add_index "posts", ["group_id"], name: "index_posts_on_group_id"
+
+  create_table "user_settings", force: true do |t|
+    t.integer  "user_id",                              null: false
+    t.boolean  "mail_attend_status",    default: true, null: false
+    t.boolean  "mail_event_comment",    default: true, null: false
+    t.boolean  "mail_event_attendance", default: true, null: false
+    t.boolean  "mail_group_event",      default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_settings", ["user_id"], name: "index_user_settings_on_user_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email"
