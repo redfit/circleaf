@@ -1,6 +1,6 @@
 ja:
   posts:
-    index:
+    form:
       submit: '投稿する'
     post:
       delete: 'この投稿を削除する'
