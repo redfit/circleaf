@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def me?(user)
+    return self.id == user.id
+  end
+
   private
   def create_setting
     self.setting = UserSetting.new

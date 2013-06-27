@@ -80,4 +80,18 @@ describe User do
       end
     end
   end
+
+  describe '#me?' do
+    subject { user.me?(other) }
+
+    context 'me' do
+      let(:other) { user }
+      it { should be_true }
+    end
+
+    context 'other' do
+      let(:other) { create(:user) }
+      it { should be_false }
+    end
+  end
 end
