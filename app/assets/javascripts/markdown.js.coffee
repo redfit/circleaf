@@ -7,6 +7,7 @@ jQuery ->
   editor = new Markdown.Editor(converter)
   editor.run()
 
+  $('#wmd-input').auto_grow()
   $('.wmd-preview').on 'DOMSubtreeModified', (e) ->
     preview = $(@)
     attach_class = 'well'
