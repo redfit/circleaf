@@ -1,5 +1,10 @@
 class HtmlWithCodeRay < Redcarpet::Render::HTML
   def block_code(code, lang)
-    CodeRay.scan(code, lang).div
+    begin
+      CodeRay.scan(code, lang).div
+    rescue
+      lang = nil
+      retry
+    end
   end
 end
