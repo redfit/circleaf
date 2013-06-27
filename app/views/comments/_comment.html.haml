@@ -1,8 +1,6 @@
 %section.post.comment[comment]
-  %div.pull-left
-    %div.name
-      = image_tag(comment.user.image, class: 'media-object face')
-      %span= comment.user.name
+  %div.pull-left.user
+    = render('users/user_face', user: comment.user)
   %div.media-body
     %div.content
       = preserve do

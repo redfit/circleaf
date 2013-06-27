@@ -1,6 +1,6 @@
 en:
   posts:
-    index:
-      submit: 'Post'
+    form:
+      submit: 'Post(Shift + Enter)'
     post:
       delete: 'Delete this post'

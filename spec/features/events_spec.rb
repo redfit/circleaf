@@ -136,7 +136,7 @@ describe 'Events' do
           describe 'コメント' do
             let(:new_comment) { build(:comment) }
             before do
-              find('#comment_content').set(new_comment.content)
+              find('#wmd-input').set(new_comment.content)
               find('form#new_comment input[type=submit]').click()
             end
             it 'メッセージが表示されること' do

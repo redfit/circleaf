@@ -25,8 +25,7 @@ class Post
     $('form#new_post textarea').focus()
     $('form#new_post textarea').keydown (event) ->
       event.stopPropagation()
-      if event.keyCode == 13
-        return if event.shiftKey
+      if event.keyCode == 13 && event.shiftKey
         $(@).parent().submit()
 
     $('ul.posts .content a').on 'click', (event) ->
@@ -38,6 +37,9 @@ class Post
       if data
         @fetch(data)
       return
+
+    $('form#new_post').bind "submit", (e) =>
+      $('#wmd-preview').html('')
 
   subscribe: ->
     @channel = pusher.subscribe("presence-group_posts_#{@group_id}")

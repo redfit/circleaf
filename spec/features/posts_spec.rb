@@ -20,7 +20,7 @@ describe "Posts" do
     describe '投稿する', :js do
       let(:new_post) { FactoryGirl.build(:post) }
       before do
-        find('textarea#post_content').set(new_post.content)
+        find('textarea#wmd-input').set(new_post.content)
         find('form#new_post input[type=submit]').click()
       end
       it '投稿した内容が表示される' do
@@ -31,6 +31,7 @@ describe "Posts" do
       let!(:new_post) { FactoryGirl.create(:post, group: group, user: user) }
       before do
         reload
+        find("#post_#{new_post.id}").hover()
         find("#post_#{new_post.id} .destroy a").click()
       end
       it '投稿した内容が削除される' do
