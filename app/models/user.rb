@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :attendances
   has_many :events, through: :attendances
   has_many :posts
+  has_one :setting, class_name: 'UserSetting'
+
+  after_create :create_setting
 
   class << self
     def authentication(auth_hash, current_user = nil)
@@ -34,5 +37,10 @@ class User < ActiveRecord::Base
       
       return user
     end
+  end
+
+  private
+  def create_setting
+    self.setting = UserSetting.new
   end
 end

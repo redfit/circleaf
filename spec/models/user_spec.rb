@@ -13,6 +13,7 @@ describe User do
     it { should have_many(:connections) }
     it { should have_many(:events).through(:attendances) }
     it { should have_many(:posts) }
+    it { should have_one(:setting) }
   end
 
   describe '.authentication' do

@@ -31,4 +31,9 @@ IshikitakaiCom::Application.configure do
   Pusher.app_id = Figaro.env.pusher_app_id
   Pusher.key    = Figaro.env.pusher_key
   Pusher.secret = Figaro.env.pusher_secret
+
+  # mail
+  ActionMailer::Base.delivery_method = :letter_opener
+  ActionMailer::Base.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: Figaro.env.host }
 end

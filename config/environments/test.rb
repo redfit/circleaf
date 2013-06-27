@@ -33,4 +33,10 @@ IshikitakaiCom::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # mail
+  ActionMailer::Base.delivery_method = :test
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.deliveries = []
+  config.action_mailer.default_url_options = { host: Figaro.env.host }
 end

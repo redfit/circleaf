@@ -20,11 +20,12 @@ class Event < ActiveRecord::Base
   has_one :post, as: :postable
   has_many :comments, as: :commentable
 
-  validates_presence_of :user, :name, :begin_at, :end_at, :capacity_max
+  validates_presence_of :group, :user, :name, :begin_at, :end_at, :capacity_max
 
   after_initialize :format_date
   after_update :update_attendances
   after_create :create_post
+  after_create :notify
   after_destroy :destroy_post
 
   def join(user)
@@ -56,6 +57,7 @@ class Event < ActiveRecord::Base
       diff = capacity_max - capacity_max_was
       self.pending_attendances.limit(diff).each do |attendance|
         attendance.update_attributes(status: 'attend')
+        ::Notification::AttendStatus.notify(attendance)
       end
     end
   end
@@ -67,5 +69,9 @@ class Event < ActiveRecord::Base
 
   def destroy_post
     self.post.try(:destroy)
+  end
+
+  def notify
+    ::Notification::GroupEvent.notify(self)
   end
 end

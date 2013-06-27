@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Attendance do
-  let(:event) { create(:event, user: user) }
+  let(:group) { create(:group) }
+  let(:event) { create(:event, group: group, user: user) }
   let(:user) { create(:user) }
   let(:attendance) { create(:attendance, event: event, user: user) }
   

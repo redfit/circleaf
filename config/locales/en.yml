@@ -21,6 +21,8 @@ en:
       sign_in: 'Sign in'
       sign_out: 'Sign out'
       post: 'Post'
+    settings:
+      edit: 'Mail Delivery Setting'
     groups:
       new: 'New group'
       join: 'Join the group'

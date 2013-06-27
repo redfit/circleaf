@@ -77,4 +77,17 @@ IshikitakaiCom::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # mail
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.mandrillapp.com',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['MANDRILL_USERNAME'],
+    :password       => ENV['MANDRILL_APIKEY'],
+    :domain         => 'heroku.com',
+  }
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  config.action_mailer.default_url_options = { protocol: 'https', host: ENV['HOST'] }
 end

@@ -1,0 +1,11 @@
+ja:
+  mailer:
+    notification:
+      attend_status:
+        subject: "イベント「%{event_name}」に参加可能となりました"
+      event_comment:
+        subject: "イベント「%{event_name}」に新たなコメントが投稿されました"
+      event_attendance:
+        subject: "イベント「%{event_name}」に新たに参加者が増えました"
+      group_event:
+        subject: "グループ「%{group_name}」に新たなイベントが追加されました"
