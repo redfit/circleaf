@@ -31,6 +31,7 @@ describe "Posts" do
       let!(:new_post) { FactoryGirl.create(:post, group: group, user: user) }
       before do
         reload
+        find("#post_#{new_post.id}").hover()
         find("#post_#{new_post.id} .destroy a").click()
       end
       it '投稿した内容が削除される' do

@@ -1,8 +1,6 @@
 %section.post[post]{data: {postable: {type: post.postable_type, id: post.postable_id}}}
   %div.pull-left
-    %div.name
-      = image_tag(post.user.image, class: 'media-object face')
-      %span= post.user.name
+    = render('users/user_face', user: post.user)
   %div.media-body
     %div.content
       - if post.postable_type.nil?
@@ -10,9 +8,9 @@
           = post.content_markdown.html_safe
       - else
         = render("#{post.postable_type.downcase}_content", post: post)
-    %div.pull-right.info
+    %div.info
       %span.muted.created_at
-        = post.created_at
+        = post.created_at.strftime(t('date.long'))
       %span.action
         %span.destroy
           = link_to(t('.delete'), post_path(post), method: :delete)

@@ -1,13 +1,16 @@
 - content_for(:body_class, 'posts')
 - content_for(:group_id, @group.id.to_s)
 = render('groups/menu')
+
 %ul.media-list.posts
   - @posts.each do |post|
     %li.media= render('post', post: post)
 
 .progress.progress-striped.active{:style => "display: none;"}
   .bar{:style => "width: 100%;"}
-%ul.unstyled.member
+
+%section.online
+  %ul.unstyled.member
 
 = render('form')
 

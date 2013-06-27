@@ -1,0 +1,7 @@
+%div.name
+  = link_to '', rel: 'tooltip',
+    data: { title: user.name,
+      trigger: 'hover',
+      placement: 'right',
+    } do
+    = image_tag(user.image, class: 'media-object face')
