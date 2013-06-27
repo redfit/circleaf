@@ -1,6 +1,6 @@
 ja:
   posts:
     form:
-      submit: '投稿する'
+      submit: '投稿する(Shift + Enter)'
     post:
       delete: 'この投稿を削除する'

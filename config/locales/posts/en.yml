@@ -1,6 +1,6 @@
 en:
   posts:
     form:
-      submit: 'Post'
+      submit: 'Post(Shift + Enter)'
     post:
       delete: 'Delete this post'
