@@ -5,8 +5,7 @@
   %div.media-body
     %div.content
       - if post.postable_type.nil?
-        = preserve do
-          = post.content_markdown.html_safe
+        = render('content_markdown', model: post)
       - else
         = render("#{post.postable_type.downcase}_content", post: post)
     %div.info

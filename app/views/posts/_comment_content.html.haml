@@ -1,5 +1,4 @@
 = link_to(event_path(post.postable.commentable)) do
   %i.icon-comment
 %div.content
-  = preserve do
-    = post.postable.content_markdown.html_safe
+  = render('content_markdown', model: post.postable)
