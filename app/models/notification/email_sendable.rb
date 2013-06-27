@@ -1,8 +1,9 @@
 module Notification::EmailSendable
   extend ActiveSupport::Concern
   module ClassMethods
-    def notify(users, trigger)
-      super(users, trigger)
+    def notify(trigger)
+      super(trigger)
+      users = target(trigger)
       users.each do|user|
         method_name = self.to_s.split('::')[1].underscore
         user_setting_column_name = "mail_#{method_name}"

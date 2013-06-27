@@ -16,4 +16,15 @@ describe Comment do
     it { should belong_to(:user) }
     it { should have_one(:post) }
   end
+
+  describe 'イベントにコメントする' do
+    before do
+      event.join(user)
+    end
+    it 'メールが配信される' do
+      expect {
+        event.comments << comment
+      }.to change(ActionMailer::Base.deliveries, :size).by(1)
+    end
+  end
 end

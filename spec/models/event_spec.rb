@@ -7,8 +7,16 @@ describe Event do
   let(:event) { create(:event, group: group, user: user) }
 
   describe 'イベントを作成できる' do
+    before do
+      group.join(user)
+    end
     subject { event }
     it { should be_instance_of Event }
+    it 'メールが配信される' do
+      expect {
+        subject
+      }.to change(ActionMailer::Base.deliveries, :size).by(1)
+    end
   end
 
   describe 'relations' do
@@ -46,10 +54,13 @@ describe Event do
         it { subject.status.should eq 'pending' }
 
         describe '参加可能人数を増やす' do
-          before do
-            event.update_attributes(capacity_max: capacity_max + 1)
+          it 'メールが配信される' do
+            expect {
+              event.capacity_max = capacity_max + 1
+              event.save
+            }.to change(ActionMailer::Base.deliveries, :size).by(capacity_max + 1)
+            subject.status.should eq 'attend'
           end
-          it { subject.status.should eq 'attend' }
         end
       end
     end

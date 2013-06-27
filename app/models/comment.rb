@@ -6,7 +6,10 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   has_one :post, as: :postable
 
+  validates_presence_of :content
+
   after_create :create_post
+  after_create :notify
   after_destroy :destroy_post
 
   private
@@ -18,5 +21,15 @@ class Comment < ActiveRecord::Base
 
   def destroy_post
     self.post.try(:destroy)
+  end
+
+  private
+  def notify
+    begin
+      notification = "::Notification::#{self.commentable_type}Comment".constantize
+    rescue
+      return
+    end
+    notification.notify(self)
   end
 end
