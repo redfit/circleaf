@@ -26,4 +26,5 @@ $ foreman start -f Procfile.development
 
 ```
 heroku addons:add pusher:sandbox
+heroku addons:add mandrill:starter
 ```
