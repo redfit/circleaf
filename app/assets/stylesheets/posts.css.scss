@@ -56,14 +56,18 @@ section.post {
       }
     }
   }
-
-  div.name {
-    img.face {
+  
+  .user {
+    height: 25px;
+    width: 25px;
+    div.name {
+      img.face {
+        width: 20px;
+        height: 20px;
+      }
+      margin-right: 20px;
       width: 20px;
-      height: 20px;
     }
-    margin-right: 20px;
-    width: 20px;
   }
 
   div.info {

@@ -3,8 +3,10 @@
 = render('groups/menu')
 
 %ul.media-list.posts
+  - prev_post = nil
   - @posts.each do |post|
-    %li.media= render('post', post: post)
+    %li.media= render('post', post: post, prev_post: prev_post)
+    - prev_post = post
 
 .progress.progress-striped.active{:style => "display: none;"}
   .bar{:style => "width: 100%;"}

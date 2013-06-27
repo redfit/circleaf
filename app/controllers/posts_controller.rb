@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @prev_post = @post.group.posts.order('id DESC').offset(1).first
   end
 
   def create

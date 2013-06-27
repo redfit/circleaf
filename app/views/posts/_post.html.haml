@@ -1,6 +1,7 @@
 %section.post[post]{data: {postable: {type: post.postable_type, id: post.postable_id}}}
-  %div.pull-left
-    = render('users/user_face', user: post.user)
+  %div.pull-left.user
+    - unless post.user == prev_post.try(:user)
+      = render('users/user_face', user: post.user)
   %div.media-body
     %div.content
       - if post.postable_type.nil?
