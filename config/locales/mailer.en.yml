@@ -1,0 +1,11 @@
+en:
+  mailer:
+    notification:
+      attend_status:
+        subject: "You could attend the event %{event_name}"
+      event_comment:
+        subject: "Posted new comment to the %{event_name}"
+      event_attendance:
+        subject: "Add attendance to the %{event_name}"
+      group_event:
+        subject: "Add event to the %{group_name}"
