@@ -34,6 +34,8 @@ ja:
       index: 'イベント一覧'
       join: '参加する'
       leave: 'キャンセルする'
+    my:
+      root: 'マイページ'
   enumerize:
     privacy_scope:
       public: '全体公開'
