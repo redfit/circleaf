@@ -21,6 +21,8 @@ ja:
       sign_in: 'ログインする'
       sign_out: 'ログアウト'
       post: '投稿する'
+    settings:
+      edit: 'メール配信設定'
     groups:
       new: '新規作成'
       join: '加入する'

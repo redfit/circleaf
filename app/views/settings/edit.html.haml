@@ -1,0 +1,13 @@
+- content_for :body_class, 'settings'
+= render('users/menu')
+
+= simple_form_for(@user_setting, url: my_setting_path, html: {class: 'form-horizontal'}) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input(:mail_attend_status)
+    = f.input(:mail_event_comment)
+    = f.input(:mail_event_attendance)
+    = f.input(:mail_group_event)
+
+  .form-actions
+    = f.button :submit
