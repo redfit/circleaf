@@ -27,6 +27,7 @@ class MembershipsController < ApplicationController
   def membership_params
     params.require(:membership).permit(:level)
   end
+
   def set_group
     @group = Group.find(params[:group_id])
   end 

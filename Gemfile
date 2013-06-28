@@ -25,6 +25,7 @@ gem 'em-http-request'
 gem 'redcarpet'
 gem 'coderay'
 gem 'validates_email_format_of'
+gem 'authority'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0'

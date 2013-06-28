@@ -1,4 +1,7 @@
 class Group < ActiveRecord::Base
+  include Authority::Abilities
+  authorizer_name = :GroupAuthorizer
+
   include Markdownable
   markdownable :content
 
@@ -27,6 +30,7 @@ class Group < ActiveRecord::Base
   end
 
   def membership_for(user)
+    return unless user
     user.memberships.where(group_id: self.id, user_id: user.id).first
   end
 

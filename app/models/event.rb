@@ -41,6 +41,7 @@ class Event < ActiveRecord::Base
   end
 
   def attendance_for(user)
+    return unless user
     user.attendances.where(event_id: self.id).first
   end
 
