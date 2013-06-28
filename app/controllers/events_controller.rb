@@ -6,13 +6,14 @@ class EventsController < ApplicationController
 
   def index
     @events = @group.events.order('id ASC')
+    authorize_action_for @group
   end
 
   def show
   end
 
   def new
-    @event = @group.events.build(privacy_scope: @group.privacy_scope)
+    @event = @group.events.build
   end
 
   def edit
@@ -23,7 +24,7 @@ class EventsController < ApplicationController
     @event.attributes = event_params
     @event.user = current_user
     if @event.save
-      redirect_to group_events_path(@group), notice: I18n.t('events.index.created')
+      redirect_to event_path(@event), notice: I18n.t('events.index.created')
     else
       render 'new'
     end
@@ -32,7 +33,7 @@ class EventsController < ApplicationController
   def update
     @event.attributes = event_params
     if @event.save
-      redirect_to group_events_path(@group), notice: I18n.t('events.show.updated')
+      redirect_to event_path(@event), notice: I18n.t('events.show.updated')
     else
       render 'edit'
     end
@@ -40,7 +41,7 @@ class EventsController < ApplicationController
 
   def destroy
     if @event.destroy
-      redirect_to group_events_path(@group), notice: I18n.t('events.index.destroyed')
+      redirect_to group_path(@group), notice: I18n.t('events.index.destroyed')
     else
       render 'edit'
     end
@@ -49,7 +50,7 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(
-      :privacy_scope, :name, :summary, :content,
+      :name, :summary, :content,
       :place_url, :place_name, :place_address, :place_map_url,
       :capacity_max, :begin_at, :end_at,
     )
@@ -62,5 +63,6 @@ class EventsController < ApplicationController
   def set_event
     @event = Event.find(params[:id])
     @group = @event.group
+    authorize_action_for @event
   end
 end

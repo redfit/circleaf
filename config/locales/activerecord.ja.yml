@@ -27,7 +27,6 @@ ja:
       post:
         content: '投稿内容'
       event:
-        privacy_scope: '公開範囲'
         name: 'イベント名'
         summary: 'イベント概要'
         content: 'イベント詳細'

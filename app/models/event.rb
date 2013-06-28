@@ -1,11 +1,9 @@
 class Event < ActiveRecord::Base
+  include Authority::Abilities
+  authorizer_name = :EventAuthorizer
+
   include Markdownable
   markdownable :content
-
-  extend Enumerize
-  extend ActiveModel::Naming
-  PRIVACY_SCOPES = [:public, :private].freeze
-  enumerize :privacy_scope, in: self::PRIVACY_SCOPES
 
   belongs_to :user
   belongs_to :group

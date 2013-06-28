@@ -3,7 +3,7 @@ ja:
     index:
       empty: 'イベントがありません'
       created: 'イベントを作成しました'
-      destroyed: 'イベントを作成しました'
+      destroyed: 'イベントを削除しました'
     show:
       updated: 'イベントを更新しました'
       attend_attendances: '参加者'

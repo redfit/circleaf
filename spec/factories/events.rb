@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :event, class: 'Event' do
-    privacy_scope 'public'
     name { Faker::Name.name }
     content { Faker::Lorem.paragraph }
     summary { Faker::Lorem.word }
