@@ -9,6 +9,7 @@ en:
       user:
         name: 'User name'
         email: 'E-mail Address'
+        unconfirmed_email: 'New E-mail Address'
         image: 'User image'
         locale: 'Locale Setting'
         content: 'Self-introduction'
@@ -38,6 +39,10 @@ en:
         date: 'Date'
     errors:
       models:
+        user:
+          attributes:
+            email:
+              email_format: 'does not appear to be a valid e-mail address'
         group:
           attributes:
             name:

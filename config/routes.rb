@@ -14,7 +14,12 @@ IshikitakaiCom::Application.routes.draw do
   end
 
   scope :path => :my do
-    resource :setting, :only => [:show, :edit, :update], :as => :my_setting
+    resource :setting, :only => [:show, :edit, :update], as: :my_setting
+    resource :email, only: [:show, :edit, :update], as: :my_email do
+      member do
+        get 'confirmation/:hash' => :confirmation, hash: /[0-9a-f]+/, as: :confirmation
+      end
+    end
     root 'users#show', as: :my_root
   end
   resource :my, controller: :users, only: [:edit, :update, :destroy]

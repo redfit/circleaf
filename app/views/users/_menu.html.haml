@@ -1,4 +1,5 @@
 = render_list(class: 'nav nav-tabs') do |li|
   - li << link_to(t('nav.my.root'), my_root_path)
+  - li << link_to(t('nav.emails.edit'), edit_my_email_path)
   - li << link_to(t('nav.settings.edit'), edit_my_setting_path)
   - li << link_to(t('nav.users.edit'), edit_my_path)

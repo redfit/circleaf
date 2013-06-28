@@ -1,0 +1,5 @@
+<%= @user.name %>,
+
+Please confirm your address.
+
+<%= confirmation_my_email_url(@user.hash_to_confirm_email) %>
