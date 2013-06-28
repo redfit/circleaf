@@ -1,6 +1,19 @@
 .row-fluid
   .span9
     = render('groups/menu')
+
+    - if @latest_event
+      .alert.alert-info
+        %h4= t('.latest_event')
+        .well
+          = link_to event_path(@latest_event) do
+            %h3
+              = @latest_event.name
+              %small
+                = @latest_event.summary
+              - if user_signed_in? && !@latest_event.attendance_for(current_user)
+                = link_to t('nav.events.join'), event_attendances_path(@latest_event), class: 'btn btn-primary', method: 'post'
+
     %section.content
       = render('content_markdown', model: @group)
 

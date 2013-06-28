@@ -8,3 +8,4 @@ ja:
     show:
       updated: 'グループの情報を更新しました'
       members: 'メンバー'
+      latest_event: '直近のイベント'

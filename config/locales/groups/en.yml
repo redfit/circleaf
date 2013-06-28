@@ -8,3 +8,4 @@ en:
     show:
       updated: 'Updated'
       members: 'Members'
+      latest_event: 'Latest event'

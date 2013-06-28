@@ -27,11 +27,11 @@ describe 'Events' do
       context 'イベントが存在する場合' do
         let(:event) { events.first }
         let(:event_count) { 10 }
-        let(:events) { group.events }
+        let(:events) { group.events.order('id DESC') }
         before do
           Event.delete_all
           event_count.times do
-            events << create(:event, group: group, user: user)
+            create(:event, group: group, user: user)
           end
           reload
         end

@@ -7,11 +7,16 @@
     %tr
       %th= t('activerecord.attributes.event.name')
       %th= t('activerecord.attributes.event.date')
+      %th= t('events.show.attend_attendances')
       %th
       = content_tag_for :tr, @events, nil, class: 'data' do |event|
         %td.name= link_to(event.name, event_path(event))
         %td.date
           = event.date
+        %td.member
+          %ul.unstyled
+            = content_tag_for(:li, event.attend_users, {class: 'pull-left'}) do |user|
+              = render('users/user_face', user: user)
         %td.actions{style: 'width: 115px;'}
           = link_to(t('nav.common.edit'), edit_event_path(event), class: 'edit_btn btn')
           = link_to(t('nav.common.delete'), event_path(event),
