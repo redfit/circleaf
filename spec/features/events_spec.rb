@@ -2,8 +2,9 @@
 require 'spec_helper'
 
 describe 'Events' do
-  let(:user) { create(:user) }
-  let(:group) { create(:group) }
+  let(:connection) { build(:connection) }
+  let(:group) { create(:group, user: user) }
+  let(:user) { create(:user, connections: [connection]) }
 
   before do
     I18n.locale = :ja
@@ -24,9 +25,9 @@ describe 'Events' do
         it { page.should have_content(I18n::t('events.index.empty')) }
       end
       context 'イベントが存在する場合' do
-        let(:event) { Event.order('id ASC').first }
+        let(:event) { events.first }
         let(:event_count) { 10 }
-        let(:events) { [] }
+        let(:events) { group.events }
         before do
           Event.delete_all
           event_count.times do
@@ -44,54 +45,61 @@ describe 'Events' do
           end
         end
 
-        describe 'イベント編集' do
-          before do
-            find("table.events>tr#event_#{event.id}>td.actions>.edit_btn").click()
-          end
-          it 'イベント編集ページへ遷移すること' do
-            page.current_path.should eq edit_event_path(event)
-          end
-          
-          describe 'イベント更新' do
-            let(:new_name) { Faker::Name.title }
-            let(:new_content) { Faker::Lorem.paragraphs.join("\n") }
-            before do
-              find('#event_name').set(new_name)
-              find('#event_content').set(new_content)
-              find('input[type=submit]').click()
-            end
-            it 'エラーが表示されていないこと' do
-              page.should_not have_css('.alert-error')
-            end
-            it 'メッセージが表示されること' do
-              page.should have_content(I18n::t('events.show.updated'))
-            end
-          end
-        end
-
-        describe 'イベント削除' do
-          before do
-            find("table.events>tr#event_#{event.id}>td.actions>.delete_btn").click()
-          end
-          it 'イベント一覧ページへ遷移すること' do
-            page.current_path.should eq group_events_path(group)
-          end
-          it 'メッセージが表示されること' do
-            page.should have_content(I18n::t('events.index.destroyed'))
-          end
-          it '削除したイベントが表示されないこと' do
-            within('table.events') do
-              page.should_not have_content(event.name)
-            end
-          end
-        end
-
         describe 'イベント詳細' do
           before do
             find("table.events>tr#event_#{event.id}>td.name a").click()
           end
           it 'イベント詳細ページへ遷移すること' do
             page.current_path.should eq event_path(event)
+          end
+
+          describe 'イベント編集' do
+            before do
+              find('.edit_btn').click()
+            end
+            it 'イベント編集ページへ遷移すること' do
+              page.current_path.should eq edit_event_path(event)
+              page.status_code.should eq 200
+            end
+            
+            describe 'イベント更新' do
+              let(:new_name) { Faker::Name.title }
+              let(:new_content) { Faker::Lorem.paragraphs.join("\n") }
+              before do
+                find('#event_name').set(new_name)
+                find('#event_content').set(new_content)
+                find('input[type=submit]').click()
+              end
+              it 'エラーが表示されていないこと' do
+                page.should_not have_css('.alert-error')
+              end
+              it 'メッセージが表示されること' do
+                page.should have_content(I18n::t('events.show.updated'))
+              end
+            end
+          end
+
+          describe 'イベント削除' do
+            before do
+              find('.delete_btn').click()
+            end
+            it 'グループページへ遷移すること' do
+              page.current_path.should eq group_path(group)
+            end
+            it 'メッセージが表示されること' do
+              page.should have_content(I18n::t('events.index.destroyed'))
+            end
+
+            describe 'イベント詳細へ移動' do
+              before do
+                visit group_events_path(group)
+              end
+              it '削除したイベントが表示されないこと' do
+                within('.events') do
+                  page.should_not have_content(event.name)
+                end
+              end
+            end
           end
 
           describe 'イベント参加' do
@@ -175,9 +183,15 @@ describe 'Events' do
           it 'メッセージが表示されること' do
             page.should have_content(I18n::t('events.index.created'))
           end
-          it '新しいイベントが表示されること' do
-            within('table.events') do
-              page.should have_content(new_event.name)
+
+          describe 'イベント詳細へ移動' do
+            before do
+              visit group_events_path(group)
+            end
+            it '新しいイベントが表示されること' do
+              within('table.events') do
+                page.should have_content(new_event.name)
+              end
             end
           end
 

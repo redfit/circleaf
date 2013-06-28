@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  include Authority::Abilities
+  authorizer_name = :EventAuthorizer
+
   include Markdownable
   markdownable :content
 
