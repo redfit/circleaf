@@ -1,6 +1,6 @@
 class AttendancesController < ApplicationController
   before_action Filters::NestedResourcesFilter.new
-  before_action :authenticate_user!, only: [:create, :destroy]
+  before_action :authenticate_user!
   before_action :set_event
 
   def index

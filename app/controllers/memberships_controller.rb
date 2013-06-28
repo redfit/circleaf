@@ -1,4 +1,5 @@
 class MembershipsController < ApplicationController
+  before_action Filters::NestedResourcesFilter.new
   before_action :authenticate_user!
   before_action :set_group
 
@@ -12,10 +13,10 @@ class MembershipsController < ApplicationController
   end
 
   def update
-    @membership = @group.memberships.find(params[:id])
+    @membership = Membership.find(params[:id])
     @membership.attributes = membership_params
     @membership.save
-    redirect_to group_memberships_path(params[:group_id])
+    redirect_to group_memberships_path(@membership.group)
   end
 
   def destroy
@@ -29,6 +30,6 @@ class MembershipsController < ApplicationController
   end
 
   def set_group
-    @group = Group.find(params[:group_id])
+    @group = @parent
   end 
 end
