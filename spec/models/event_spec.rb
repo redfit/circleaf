@@ -3,12 +3,13 @@ require 'spec_helper'
 
 describe Event do
   let(:user) { create(:user) }
+  let(:other_user) { create(:user) }
   let(:group) { create(:group) }
   let(:event) { create(:event, group: group, user: user) }
 
   describe 'イベントを作成できる' do
     before do
-      group.join(user)
+      group.join(other_user)
     end
     subject { event }
     it { should be_instance_of Event }
