@@ -29,7 +29,7 @@ describe User do
       let(:auth_hash) {
         {
           'provider' => 'twitter',
-          'uid' => '12345',
+          'uid' => '123456',
           'info' => {
             'nickname' => 'ppworks',
             'name' => 'PP works',
@@ -78,6 +78,46 @@ describe User do
           it { should be_instance_of User }
         end
       end
+    end
+  end
+
+  describe '#me?' do
+    subject { user.me?(other) }
+
+    context 'me' do
+      let(:other) { user }
+      it { should be_true }
+    end
+
+    context 'other' do
+      let(:other) { create(:user) }
+      it { should be_false }
+    end
+  end
+
+  describe '#update_email' do
+    let(:new_email) { Faker::Internet.email }
+    subject { user.update_email(new_email) }
+    it 'メールが配信される' do
+      expect {
+        subject
+      }.to change(ActionMailer::Base.deliveries, :size).by(1)
+    end
+  end
+
+  describe '#confirm_email' do
+    let(:new_email) { Faker::Internet.email }
+    let(:hash) { '12345abcde' }
+    before do
+      user.update_column(:unconfirmed_email, new_email)
+      user.update_column(:hash_to_confirm_email, hash)
+      user.update_column(:confirm_limit_at, Time.current + 10.minutes)
+    end
+    subject { user.confirm_email(hash) }
+    it 'メールが変更される' do
+      expect {
+        subject
+      }.to change(user, :email).from(user.email).to(new_email)
     end
   end
 end

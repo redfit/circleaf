@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_one :setting, class_name: 'UserSetting'
 
+  validates :email, email_format: {allow_nil: true}
+  validates :unconfirmed_email, email_format: {allow_nil: true}
+
   after_create :create_setting
 
   class << self
@@ -39,8 +42,37 @@ class User < ActiveRecord::Base
     end
   end
 
+  def me?(user)
+    return self.id == user.id
+  end
+
+  def update_email(email)
+    self.unconfirmed_email = email
+    self.confirm_limit_at = Time.current + 3.hour
+    self.hash_to_confirm_email = confirm_key
+    if self.save
+      UserMailer.email_confirmation(self).deliver
+    else
+      return false
+    end
+  end
+
+  def confirm_email(hash)
+    if hash == self.hash_to_confirm_email && Time.current <= self.confirm_limit_at
+      self.email = self.unconfirmed_email
+      self.unconfirmed_email = nil
+      self.confirm_limit_at = nil
+      self.hash_to_confirm_email = nil
+      self.save!
+    end
+  end
+
   private
   def create_setting
     self.setting = UserSetting.new
+  end
+
+  def confirm_key
+    Digest::SHA1.hexdigest("#{self.id}#{Time.current.to_i}")
   end
 end

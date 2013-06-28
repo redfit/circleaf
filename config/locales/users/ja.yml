@@ -1,0 +1,7 @@
+ja:
+  users:
+    edit:
+      submit: 'プロフィールを設定する'
+      updated: 'プロフィールを更新しました'
+    my_url:
+      title: '他の人から見えるあなたのページは以下のURLから参照可能です。'

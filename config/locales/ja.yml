@@ -34,6 +34,12 @@ ja:
       index: 'イベント一覧'
       join: '参加する'
       leave: 'キャンセルする'
+    users:
+      edit: 'プロフィール設定'
+    my:
+      root: 'マイページ'
+    emails:
+      edit: 'メールアドレス設定'
   enumerize:
     privacy_scope:
       public: '全体公開'

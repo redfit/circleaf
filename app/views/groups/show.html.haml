@@ -2,8 +2,7 @@
   .span9
     = render('groups/menu')
     %section.content
-      = preserve do
-        = @group.content_markdown.html_safe
+      = render('content_markdown', model: @group)
 
   .span3
     %h3= t('.members')

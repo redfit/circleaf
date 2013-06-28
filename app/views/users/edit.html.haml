@@ -1,0 +1,9 @@
+= render('users/menu')
+= render('users/my_url', user: @user)
+
+.wmd-panel
+  #wmd-button-bar
+  = form_tag(my_path, method: :put) do ||
+    = text_area(:user, :content, id: 'wmd-input', class: 'span12 wmd-input')
+    #wmd-preview.wmd-panel.wmd-preview
+    = submit_tag(t('.submit'), class: 'btn btn-primary')

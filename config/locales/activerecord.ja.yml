@@ -9,6 +9,7 @@ ja:
       user:
         name: 'ユーザー名'
         email: 'メールアドレス'
+        unconfirmed_email: '新しいメールアドレス'
         image: 'ユーザー画像'
         locale: '言語設定'
         content: '自己紹介文'
@@ -38,6 +39,10 @@ ja:
         date: '開催日'
     errors:
       models:
+        user:
+          attributes:
+            email:
+              email_format: '形式が不適切です'
         group:
           attributes:
             name:

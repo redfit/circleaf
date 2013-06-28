@@ -1,0 +1,12 @@
+ja:
+  emails:
+    updated: '確認メールを送信しました。メールに含まれるURLをクリックしメールアドレスの変更を完了して下さい。'
+    confirmation:
+      complete: 'メールアドレスを変更しました。'
+      error: '有効なURLではありません。'
+    edit:
+      email: '現在登録されているメールアドレス'
+      unconfirmed_email: '現在変更申請されているメールアドレス'
+      unconfirmed: '未承認'
+      unregistered: 'まだメールアドレスが登録されていません'
+      submit: 'メールアドレスを更新する'

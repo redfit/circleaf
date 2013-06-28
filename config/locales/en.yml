@@ -34,6 +34,12 @@ en:
       index: 'Event list'
       join: 'Attend'
       leave: 'Cancel'
+    users:
+      edit: 'Profile setting'
+    emails:
+      edit: 'Update E-mail address'
+    my:
+      root: 'My page'
   enumerize:
     privacy_scope:
       public: 'Public'

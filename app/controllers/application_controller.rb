@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_filter :set_locale
 
   private
@@ -22,5 +23,9 @@ class ApplicationController < ActionController::Base
     else
       :en
     end
+  end
+
+  def catch_not_found
+    render layout: false, file: "#{Rails.root}/public/404.html", status: 404
   end
 end

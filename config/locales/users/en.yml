@@ -1,0 +1,7 @@
+en:
+  users:
+    edit:
+      submit: 'Update profile'
+      updated: 'Updated profile'
+    my_url:
+      title: 'Following URL is your page URL'

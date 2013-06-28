@@ -1,0 +1,12 @@
+en:
+  emails:
+    updated: 'Sent email to confrim your email address. Please click URL in the mail'
+    confirmation:
+      complete: 'Email address is updated'
+      error: 'invalid URL'
+    edit:
+      email: 'Current Email address'
+      unconfirmed_email: 'Unconfirmed Email address'
+      unconfirmed: 'unconfirmed'
+      unregistered: 'unregistered yet'
+      submit: 'Update E-mail address'

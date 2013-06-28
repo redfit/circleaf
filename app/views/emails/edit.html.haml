@@ -1,0 +1,21 @@
+= render('users/menu')
+
+- if @user.errors.present?
+  .alert.alert-error= @user.errors.full_messages.join('')
+
+%dl
+  %dt= t('.email')
+  %dd.email
+    - if @user.email.present?
+      %span.label= @user.email
+    - else
+      %span.label.label-important= t('.unregistered')
+  - if @user.unconfirmed_email.present?
+    %dt= t('.unconfirmed_email')
+    %dd.unconfirmed_email
+      %span.label= @user.unconfirmed_email
+      %span.label.label-important= t('.unconfirmed')
+= form_tag my_email_path, method: :put do
+  .controls.controls-row
+    = text_field_tag :email, nil, class: 'span10'
+    = submit_tag t('.submit'), class: 'span2 btn'

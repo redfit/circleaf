@@ -3,8 +3,7 @@
     = render('users/user_face', user: comment.user)
   %div.media-body
     %div.content
-      = preserve do
-        = comment.content_markdown.html_safe
+      = render('content_markdown', model: comment)
     %div.pull-right.info
       %span.muted.created_at
         = comment.created_at
