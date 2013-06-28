@@ -3,7 +3,6 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.integer :group_id
       t.integer :user_id, null: false
-      t.string :privacy_scope, null: false, default: 'public'
       t.string :name, null: false
       t.text :content
       t.text :summary

@@ -51,9 +51,8 @@ ActiveRecord::Schema.define(version: 20130627035627) do
 
   create_table "events", force: true do |t|
     t.integer  "group_id"
-    t.integer  "user_id",                             null: false
-    t.string   "privacy_scope",    default: "public", null: false
-    t.string   "name",                                null: false
+    t.integer  "user_id",          null: false
+    t.string   "name",             null: false
     t.text     "content"
     t.text     "summary"
     t.text     "place_url"

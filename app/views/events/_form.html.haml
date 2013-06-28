@@ -1,7 +1,6 @@
 = simple_form_for(model, html: {class: 'form-horizontal'}) do |f|
   = f.error_notification
   .form-inputs
-    = f.input(:privacy_scope, collection: Event.privacy_scope.options)
     = f.input(:name)
     = f.input(:summary)
     = f.input(:content)

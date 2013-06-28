@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = @group.events.build(privacy_scope: @group.privacy_scope)
+    @event = @group.events.build
   end
 
   def edit
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(
-      :privacy_scope, :name, :summary, :content,
+      :name, :summary, :content,
       :place_url, :place_name, :place_address, :place_map_url,
       :capacity_max, :begin_at, :end_at,
     )
