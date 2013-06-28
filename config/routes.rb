@@ -10,6 +10,7 @@ IshikitakaiCom::Application.routes.draw do
     resources :posts, only: [:index, :show, :create, :update, :destroy], shallow: true
     resources :events, shallow: true do
       resource :attendances, only: [:create, :destroy]
+      resources :attendances, only: [:index, :update]
       resources :comments, only: [:create, :update, :destroy]
     end
   end
