@@ -10,6 +10,12 @@ describe Group do
     it { should be_instance_of Group }
   end
 
+  describe '作成者ありでグループを生成する' do
+    let(:group) { create(:group, user: user) }
+    subject { group.membership_for(user) }
+    it { subject.level.should eq 'owner' }
+  end
+
   describe 'relations' do
     it { should have_many(:users).through(:memberships) }
     it { should have_many(:posts) }
