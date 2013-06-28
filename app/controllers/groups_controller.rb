@@ -50,5 +50,6 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+    authorize_action_for @group
   end
 end

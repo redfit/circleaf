@@ -1,4 +1,7 @@
 class Group < ActiveRecord::Base
+  include Authority::Abilities
+  authorizer_name = :GroupAuthorizer
+
   include Markdownable
   markdownable :content
 

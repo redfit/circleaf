@@ -70,6 +70,7 @@ RSpec.configure do |config|
   # macro
   config.include RoutingResourcesMacros, type: :routing
   config.include FeatureMacros, type: :feature
+  config.include Devise::TestHelpers, type: :controller
 
   # metadata setting
   config.treat_symbols_as_metadata_keys_with_true_values = true

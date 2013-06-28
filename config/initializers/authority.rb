@@ -59,5 +59,8 @@ Authority.configure do |config|
   # config.logger = Rails.logger                     # Log with all your app's other messages
   # config.logger = Logger.new('log/authority.log')  # Use this file
   # config.logger = Logger.new('/dev/null')          # Don't log at all (on a Unix system)
-
 end
+# for no signed in user 
+# @see
+# https://github.com/nathanl/authority/pull/32#issuecomment-16234857
+nil.extend(Authority::UserAbilities)
