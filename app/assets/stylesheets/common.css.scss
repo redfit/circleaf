@@ -68,3 +68,22 @@ ul.thumbnails {
 .label.member {
   background-color: #468847;
 }
+
+.label.public {
+  background-color: #468847;
+}
+
+.label.private {
+  background-color: #333333;
+}
+
+td.member {
+  ul > li {
+    display: inline-block;
+    margin-right: 3px;
+    img {
+      height: 25px;
+      width: 25px;
+    }
+  }
+}

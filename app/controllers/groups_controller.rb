@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @latest_event = @group.events.where('begin_at <= ?', Time.current).order(:begin_at).last
   end
 
   def new

@@ -1,3 +1,5 @@
+.label{class: @group.privacy_scope}
+  = @group.privacy_scope_text
 %h1= @group.name
 = render_list(class: 'nav nav-tabs') do |li|
   - li << link_to(t('nav.groups.show'), group_path(@group))
