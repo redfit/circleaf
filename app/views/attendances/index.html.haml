@@ -1,0 +1,19 @@
+- content_for :body_class,  'attendances '
+%h3
+  = t('events.show.attendances')
+%table.table.table-condensed
+  %thead
+    %tr
+      %th.span3= t('activerecord.attributes.attendances.status')
+      %th.span2= t('activerecord.attributes.user.name')
+      %th.span5
+  - @attendances.each do|attendance|
+    %tr
+      %td
+        .label{class: attendance.status}
+          = attendance.status_text
+      %td= link_to attendance.user.name, user_path(attendance.user_id)
+      %td
+        = simple_form_for(attendance, html: {class: 'form-inline'}) do |f|
+          = f.select :status, Attendance.status.options
+          = f.submit nil, class: 'btn'

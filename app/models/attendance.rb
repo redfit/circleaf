@@ -9,6 +9,7 @@ class Attendance < ActiveRecord::Base
 
   before_save :check_capacity, if: -> (a) { a.status != 'cancel' }
   before_save :update_pending_attendance, if: -> (a) { a.status == 'cancel' }
+  after_create :join_group
   after_save :notify
 
   private
@@ -32,5 +33,10 @@ class Attendance < ActiveRecord::Base
     if self.status == 'attend'
       ::Notification::EventAttendance.notify(self)
     end
+  end
+
+  private
+  def join_group
+    self.event.group.join(self.user)
   end
 end

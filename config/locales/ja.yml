@@ -48,3 +48,8 @@ ja:
       level:
         member: 'メンバー'
         owner: '主催者'
+    attendance:
+      status:
+        attend: '参加'
+        pending: 'キャンセル待ち'
+        cancel: 'キャンセル'
