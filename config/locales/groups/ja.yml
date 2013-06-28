@@ -7,3 +7,4 @@ ja:
       destroyed_error: 'グループの削除ができませんでした'
     show:
       updated: 'グループの情報を更新しました'
+      members: 'メンバー'

@@ -44,3 +44,7 @@ ja:
     privacy_scope:
       public: '全体公開'
       private: '秘密'
+    membership:
+      level:
+        member: 'メンバー'
+        owner: '主催者'

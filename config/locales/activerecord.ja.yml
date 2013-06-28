@@ -22,6 +22,8 @@ ja:
         name: 'グループ名'
         content: 'グループ詳細'
         privacy_scope: '公開範囲'
+      membership:
+        level: 'メンバーレベル'
       post:
         content: '投稿内容'
       event:

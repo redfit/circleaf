@@ -6,6 +6,7 @@ IshikitakaiCom::Application.routes.draw do
 
   resources :groups do
     resource :memberships, only: [:create, :destroy]
+    resources :memberships, only: [:index, :update]
     resources :posts, only: [:index, :show, :create, :update, :destroy], shallow: true
     resources :events, shallow: true do
       resource :attendances, only: [:create, :destroy]
