@@ -4,3 +4,5 @@ en:
       created: 'Joined the group'
     destroy:
       destroyed: 'Left the group'
+    update:
+      updated: 'Updated membership level'

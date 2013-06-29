@@ -4,7 +4,8 @@ class MembershipsController < ApplicationController
   before_action :set_group
 
   def index
-    @memberships = @group.memberships.all
+    @memberships = @group.memberships.order('id ASC').to_a
+    authorize_action_for Membership.new(group: @group)
   end
 
   def create
@@ -14,9 +15,10 @@ class MembershipsController < ApplicationController
 
   def update
     @membership = Membership.find(params[:id])
+    authorize_action_for @membership
     @membership.attributes = membership_params
     @membership.save
-    redirect_to group_memberships_path(@membership.group)
+    redirect_to group_memberships_path(@membership.group), notice: t('memberships.update.updated')
   end
 
   def destroy
