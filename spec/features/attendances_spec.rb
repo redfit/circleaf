@@ -33,6 +33,21 @@ describe "Attendances" do
       end
       it '画面遷移する' do
         current_path.should eq event_attendances_path(event)
+        page.status_code.should eq 200
+      end
+
+      describe 'レベルを変更する' do
+        Attendance::STATUSES.each do |status|
+          before do
+            within("tr:eq(#{attendance_count + 1}) form") do
+              select(I18n.t("enumerize.attendance.status.#{status}"), from: 'attendance_level')
+              find('input[type=submit]').click()
+            end
+          end
+          it 'メッセージが表示される' do
+            page.should have_content(I18n.t('attendances.update.updated'))
+          end
+        end
       end
     end
   end
