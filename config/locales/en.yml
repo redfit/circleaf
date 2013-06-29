@@ -44,3 +44,12 @@ en:
     privacy_scope:
       public: 'Public'
       private: 'Private'
+    membership:
+      level:
+        member: 'Member'
+        owner: 'Owner'
+    attendance:
+      status:
+        attend: 'Attend'
+        pending: 'Waiting'
+        cancel: 'Cancel'

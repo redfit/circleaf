@@ -22,7 +22,11 @@ class Group < ActiveRecord::Base
   before_create :join_as_owner
 
   def join(user, level = 'member')
-    self.memberships << Membership.new(user: user, level: level) unless user.groups.include?(self)
+    if user.groups.include?(self)
+      self.membership_for(user).update_column(:level, level)
+    else
+      self.memberships << Membership.new(user: user, level: level)
+    end
   end
 
   def leave(user)

@@ -7,13 +7,12 @@
       %th.span3= t('activerecord.attributes.membership.level')
       %th.span2= t('activerecord.attributes.user.name')
       %th.span5
-  - @memberships.each do|membership|
-    %tr
-      %td
-        .label{class: membership.level}
-          = membership.level_text
-      %td= link_to membership.user.name, user_path(membership.user_id)
-      %td
-        = simple_form_for([membership], html: {class: 'form-inline'}) do |f|
-          = f.select :level, Membership.level.options
-          = f.submit nil, class: 'btn'
+  = content_tag_for(:tr, @memberships) do|membership|
+    %td
+      .label{class: membership.level}
+        = membership.level_text
+    %td= link_to membership.user.name, user_path(membership.user_id)
+    %td
+      = simple_form_for([membership], html: {class: 'form-inline'}) do |f|
+        = f.select :level, Membership.level.options
+        = f.submit nil, class: 'btn'

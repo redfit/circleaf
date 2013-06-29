@@ -4,3 +4,5 @@ ja:
       created: 'グループに加入しました'
     destroy:
       destroyed: 'グループから脱退しました'
+    update:
+      updated: 'メンバーのレベルを変更しました'
