@@ -40,6 +40,11 @@ class Attendance < ActiveRecord::Base
 
   private
   def join_group
-    self.event.group.join(self.user)
+    membership = self.event.group.membership_for(self.user)
+    if membership
+      self.event.group.join(self.user, membership.level)
+    else
+      self.event.group.join(self.user)
+    end
   end
 end

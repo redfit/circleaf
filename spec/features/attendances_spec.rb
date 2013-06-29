@@ -10,12 +10,10 @@ describe "Attendances" do
   describe '参加者管理画面' do
     let(:attendance_count) { 10 }
     before do
-      Attendance.delete_all
       attendance_count.times do
         user = create(:user)
         event.join(user)
       end
-      reload
     end
     context 'ログインしていない' do
       before do
@@ -29,10 +27,26 @@ describe "Attendances" do
     context 'ログインしている' do
       before do
         oauth_sign_in(user, :twitter)
+        group.join(user, 'owner')
         visit event_attendances_path(event)
       end
       it '画面遷移する' do
         current_path.should eq event_attendances_path(event)
+        page.status_code.should eq 200
+      end
+
+      describe 'レベルを変更する' do
+        Attendance::STATUSES.each do |status|
+          before do
+            within("tr:eq(#{attendance_count + 1}) form") do
+              select(I18n.t("enumerize.attendance.status.#{status}"), from: 'attendance_status')
+              find('input[type=submit]').click()
+            end
+          end
+          it 'メッセージが表示される' do
+            page.should have_content(I18n.t('attendances.update.updated'))
+          end
+        end
       end
     end
   end
