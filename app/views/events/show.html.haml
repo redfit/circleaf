@@ -1,3 +1,11 @@
+- content_for(:title, "#{@event.name} - #{@event.group.name}")
+- content_for(:head) do
+  = render 'ogp',
+    title: "#{@event.name} - #{@event.group.name}", type: 'website',
+    url: event_url(@event), image: 'http://lorempixel.com/300/300/',
+    description: @event.summary
+
+= render('sns_buttons', url: event_url(@event), link_name: "#{@event.name} - #{@event.group.name}")
 = render('groups/menu')
 %ul.breadcrumb
   %li

@@ -1,5 +1,13 @@
+- content_for(:title, @group.name)
+- content_for(:head) do
+  = render 'ogp',
+    title: @group.name, type: 'website',
+    url: group_url(@group), image: 'http://lorempixel.com/300/300/',
+    description: @group.content_markdown
+
 .row-fluid
   .span9
+    = render('sns_buttons', url: group_url(@group), link_name: @group.name)
     = render('groups/menu')
 
     - if @latest_event

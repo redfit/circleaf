@@ -87,3 +87,11 @@ td.member {
     }
   }
 }
+
+ul.sns {
+  margin-left: 0;
+  >li {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
