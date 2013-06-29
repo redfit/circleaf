@@ -1,23 +1,22 @@
 class AttendanceAuthorizer < ApplicationAuthorizer
   def readable_by?(user)
-    group = resource.event.group
-    membership = group.membership_for(user)
-    return true if membership.try(:level) == 'owner'
-    return false
+    group.owner?(user)
   end
 
   def creatable_by?(user)
-    group = resource.event.group
-    return true if group.privacy_scope.public?
-    return true if group.membership_for(user).present?
-    return false
+    group.privacy_scope.public? || group.join?(user)
   end
 
   def updatable_by?(user)
-    return readable_by?(user)
+    readable_by?(user)
   end
 
   def deletable_by?(user)
-    return creatable_by?(user)
+    creatable_by?(user)
+  end
+
+  private
+  def group
+    resource.event.group
   end
 end
