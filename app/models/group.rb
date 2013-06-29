@@ -38,6 +38,14 @@ class Group < ActiveRecord::Base
     user.memberships.where(group_id: self.id, user_id: user.id).first
   end
 
+  def owner?(user)
+    self.membership_for(user).try(:level).try(:owner?)
+  end
+
+  def join?(user)
+    self.membership_for(user).present?
+  end
+
   private
   def join_as_owner
     self.join(self.user, 'owner') if self.user

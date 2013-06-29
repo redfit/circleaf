@@ -1,17 +1,18 @@
 class EventAuthorizer < ApplicationAuthorizer
   def readable_by?(user)
-    return true if resource.group.privacy_scope.public?
-    return true if resource.group.membership_for(user).present?
-    return false
+    group.privacy_scope.public? || group.join?(user)
   end
 
   def updatable_by?(user)
-    membership = resource.group.membership_for(user)
-    return true if membership.try(:level) == 'owner'
-    return false
+    group.owner?(user)
   end
 
   def deletable_by?(user)
-    return updatable_by?(user)
+    updatable_by?(user)
+  end
+
+  private
+  def group
+    resource.group
   end
 end

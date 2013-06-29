@@ -33,4 +33,52 @@ describe Group do
       end
     end
   end
+
+  describe '#owner?' do
+    subject { group.owner?(user) }
+
+    context '加入している' do
+      before do
+        group.join(user, level)
+      end
+
+      context 'オーナーである' do
+        let(:level) { 'owner' }
+        it { should be_true }
+      end
+
+      context 'オーナーではない' do
+        let(:level) { 'member' }
+        it { should be_false }
+      end
+    end
+
+    context '加入していない' do
+      it { should be_false }
+    end
+  end
+
+  describe '#join?' do
+    subject { group.join?(user) }
+
+    context '加入している' do
+      before do
+        group.join(user, level)
+      end
+
+      context 'オーナーである' do
+        let(:level) { 'owner' }
+        it { should be_true }
+      end
+
+      context 'オーナーではない' do
+        let(:level) { 'member' }
+        it { should be_true }
+      end
+    end
+
+    context '加入していない' do
+      it { should be_false }
+    end
+  end
 end
