@@ -4,7 +4,7 @@ class AttendancesController < ApplicationController
   before_action :set_event
 
   def index
-    @attendances = @event.attendances.all
+    @attendances = @event.attendances.to_a
     authorize_action_for Attendance.new(event: @event)
   end
 
