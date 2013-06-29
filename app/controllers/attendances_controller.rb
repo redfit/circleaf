@@ -5,6 +5,7 @@ class AttendancesController < ApplicationController
 
   def index
     @attendances = @event.attendances.all
+    authorize_action_for Attendance.new(event: @event)
   end
 
   def create
@@ -14,9 +15,10 @@ class AttendancesController < ApplicationController
 
   def update
     @attendance = Attendance.find(params[:id])
+    authorize_action_for @attendance
     @attendance.attributes = attendances_params
     @attendance.save
-    redirect_to event_attendances_path(@attendance.event)
+    redirect_to event_attendances_path(@attendance.event), notice: t('attendances.update.updated')
   end
 
   def destroy

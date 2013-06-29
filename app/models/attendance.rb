@@ -1,4 +1,7 @@
 class Attendance < ActiveRecord::Base
+  include Authority::Abilities
+  authorizer_name = :AttendanceAuthorizer
+
   extend Enumerize
   extend ActiveModel::Naming
   STATUSES = [:attend, :pending, :cancel].freeze
