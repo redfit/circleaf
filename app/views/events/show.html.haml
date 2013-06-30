@@ -2,7 +2,7 @@
 - content_for(:head) do
   = render 'ogp',
     title: "#{@event.name} - #{@event.group.name}", type: 'website',
-    url: event_url(@event), image: 'http://lorempixel.com/300/300/',
+    url: event_url(@event), image: @event.group.image_url,
     description: @event.summary
 
 = render('sns_buttons', url: event_url(@event), link_name: "#{@event.name} - #{@event.group.name}")

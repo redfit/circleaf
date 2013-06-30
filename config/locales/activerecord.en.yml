@@ -22,6 +22,7 @@ en:
         name: 'Group name'
         content: 'Group introduction'
         privacy_scope: 'Group privacy'
+        image: 'Group square image(resize to 300x300)'
       post:
         content: 'Post content'
       event:
