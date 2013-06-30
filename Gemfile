@@ -26,6 +26,7 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'validates_email_format_of'
 gem 'authority'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0'
