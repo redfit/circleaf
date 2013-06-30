@@ -20,6 +20,7 @@ class Group < ActiveRecord::Base
 
   validates_presence_of :name, :privacy_scope
 
+  after_initialize :set_default
   before_create :join_as_owner
 
   def join(user, level = 'member')
@@ -53,6 +54,10 @@ class Group < ActiveRecord::Base
   end
 
   private
+  def set_default
+    self.privacy_scope = 'public'
+  end
+
   def join_as_owner
     self.join(self.user, 'owner') if self.user
   end
