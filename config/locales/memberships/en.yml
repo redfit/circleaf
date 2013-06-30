@@ -4,5 +4,6 @@ en:
       created: 'Joined the group'
     destroy:
       destroyed: 'Left the group'
+      destroy_error: 'Fail to leave the group'
     update:
       updated: 'Updated membership level'
