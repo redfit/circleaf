@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :group
-  has_many :attendances, -> { order(updated_at: :asc) }
+  has_many :attendances, -> { order(updated_at: :asc) }, dependent: :delete_all
   has_many :users, through: :attendances
   has_many :attend_attendances, -> { where(status: 'attend').order(updated_at: :asc, id: :asc) }, class_name: 'Attendance'
   has_many :attend_users, through: :attend_attendances, source: :user
@@ -15,8 +15,8 @@ class Event < ActiveRecord::Base
   has_many :pending_users, through: :pending_attendances, source: :user
   has_many :cancel_attendances, -> { where(status: 'cancel').order(updated_at: :asc, id: :asc) }, class_name: 'Attendance'
   has_many :cancel_users, through: :cancel_attendances, source: :user
-  has_one :post, as: :postable
-  has_many :comments, as: :commentable
+  has_one :post, as: :postable, dependent: :delete
+  has_many :comments, as: :commentable, dependent: :delete_all
 
   validates_presence_of :group, :user, :name, :begin_at, :end_at, :capacity_max
 

@@ -13,10 +13,10 @@ class Group < ActiveRecord::Base
   attr_accessor :user
   mount_uploader :image, GroupImageUploader
 
-  has_many :memberships
+  has_many :memberships, dependent: :delete_all
   has_many :users, -> { order('memberships.id ASC') }, through: :memberships
-  has_many :posts, -> { order('id ASC') }
-  has_many :events
+  has_many :posts, -> { order('id ASC') }, dependent: :delete_all
+  has_many :events, dependent: :delete_all
 
   validates_presence_of :name, :privacy_scope
 

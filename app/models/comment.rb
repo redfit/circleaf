@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
 
   belongs_to :commentable, polymorphic: true
   belongs_to :user
-  has_one :post, as: :postable
+  has_one :post, as: :postable, dependent: :delete
 
   validates_presence_of :content
 

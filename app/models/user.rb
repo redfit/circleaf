@@ -3,13 +3,13 @@ class User < ActiveRecord::Base
   include Markdownable
   markdownable :content
   devise :rememberable, :trackable, :omniauthable
-  has_many :connections
-  has_many :memberships
+  has_many :connections, dependent: :delete_all
+  has_many :memberships, dependent: :delete_all
   has_many :groups, through: :memberships
-  has_many :attendances
+  has_many :attendances, dependent: :delete_all
   has_many :events, through: :attendances
-  has_many :posts
-  has_one :setting, class_name: 'UserSetting'
+  has_many :posts, dependent: :delete_all
+  has_one :setting, class_name: 'UserSetting', dependent: :delete
 
   validates :email, email_format: {allow_nil: true}
   validates :unconfirmed_email, email_format: {allow_nil: true}
