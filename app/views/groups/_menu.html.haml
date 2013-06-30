@@ -1,7 +1,9 @@
-.label{class: @group.privacy_scope}
-  = @group.privacy_scope_text
-%h1= @group.name
-= render_list(class: 'nav nav-tabs') do |li|
-  - li << link_to(t('nav.groups.show'), group_path(@group))
-  - li << link_to(t('nav.posts.index'), group_posts_path(@group))
-  - li << link_to(t('nav.events.index'), group_events_path(@group))
+- unless below
+  .label{class: @group.privacy_scope}
+    = @group.privacy_scope_text
+  %h1= @group.name
+.tabbable{class: below.present? ? 'tabs-below' : ''}
+  = render_list(class: 'nav nav-tabs') do |li|
+    - li << link_to(t('nav.groups.show'), group_path(@group))
+    - li << link_to(t('nav.posts.index'), group_posts_path(@group))
+    - li << link_to(t('nav.events.index'), group_events_path(@group))

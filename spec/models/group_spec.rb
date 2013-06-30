@@ -34,6 +34,25 @@ describe Group do
     end
   end
 
+  describe '#leave' do
+    before do
+      group.join(user, 'owner')
+    end
+    subject { group.leave(user) }
+
+    context '他にオーナーがいる' do
+      let(:other_user) { create(:user) }
+      before do
+        group.join(other_user, 'owner')
+      end
+      it { should be_present }
+    end
+ 
+    context '他にオーナーがいない' do
+      it { should be_false }
+    end
+  end
+
   describe '#owner?' do
     subject { group.owner?(user) }
 

@@ -22,8 +22,11 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    @group.leave(current_user)
-    redirect_to group_path(@group), notice: t('memberships.destroy.destroyed')
+    if @group.leave(current_user)
+      redirect_to group_path(@group), notice: t('memberships.destroy.destroyed')
+    else
+      redirect_to group_path(@group), notice: t('memberships.destroy.destroy_error')
+    end
   end
 
   private

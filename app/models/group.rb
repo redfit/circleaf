@@ -30,7 +30,12 @@ class Group < ActiveRecord::Base
   end
 
   def leave(user)
-    user.groups.delete(self)
+    owners = self.memberships.where(level: 'owner') - [self.membership_for(user)]
+    if owners.present? 
+      user.groups.delete(self)
+    else
+      return
+    end
   end
 
   def membership_for(user)

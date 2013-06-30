@@ -4,5 +4,6 @@ ja:
       created: 'サークルに加入しました'
     destroy:
       destroyed: 'サークルから脱退しました'
+      destroy_error: 'サークルから脱退出来ませんでした'
     update:
       updated: 'メンバーのレベルを変更しました'

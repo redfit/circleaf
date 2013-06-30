@@ -27,11 +27,10 @@ describe "Posts" do
         page.should have_content(new_post.content)
       end
     end
-    describe '削除する', :js do
+    describe '削除する' do
       let!(:new_post) { FactoryGirl.create(:post, group: group, user: user) }
       before do
         reload
-        find("#post_#{new_post.id}").hover()
         find("#post_#{new_post.id} .destroy a").click()
       end
       it '投稿した内容が削除される' do

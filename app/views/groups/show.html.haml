@@ -8,7 +8,7 @@
 .row-fluid
   .span9
     = render('sns_buttons', url: group_url(@group), link_name: @group.name)
-    = render('groups/menu')
+    = render('groups/menu', below: false)
 
     - if @latest_event
       .alert.alert-info
@@ -24,6 +24,13 @@
 
     %section.content
       = render('content_markdown', model: @group)
+
+    - if current_user.can_update?(@group)
+      .form-actions
+        = link_to(t('nav.common.edit'), edit_group_path(@group), class: 'edit_btn btn')
+        = link_to(t('nav.common.delete'), group_path(@group),
+          data: {confirm: t('nav.common.delete_confirm')}, method: :delete, 
+          class: 'delete_btn btn btn-danger')
 
   .span3
     %h3= t('.members')
