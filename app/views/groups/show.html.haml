@@ -8,7 +8,7 @@
 .row-fluid
   .span9
     = render('sns_buttons', url: group_url(@group), link_name: @group.name)
-    = render('groups/menu')
+    = render('groups/menu', below: false)
 
     - if @latest_event
       .alert.alert-info

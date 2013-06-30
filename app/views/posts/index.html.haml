@@ -1,6 +1,6 @@
 - content_for(:body_class, 'posts')
 - content_for(:group_id, @group.id.to_s)
-= render('groups/menu')
+= render('groups/menu', below: false)
 
 = paginate @posts
 %ul.media-list.posts
@@ -18,9 +18,4 @@
 
 = render('form')
 
-.tabbable.tabs-below
-  %ul.nav.nav-tabs
-    %li
-      = link_to(@group.name, group_path(@group))
-    %li.active
-      = link_to(t('nav.posts.index'), group_posts_path(@group))
+= render('groups/menu', below: true)
