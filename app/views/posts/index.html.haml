@@ -2,11 +2,13 @@
 - content_for(:group_id, @group.id.to_s)
 = render('groups/menu')
 
+= paginate @posts
 %ul.media-list.posts
   - prev_post = nil
   - @posts.each do |post|
     %li.media= render('post', post: post, prev_post: prev_post)
     - prev_post = post
+= paginate @posts
 
 .progress.progress-striped.active{:style => "display: none;"}
   .bar{:style => "width: 100%;"}

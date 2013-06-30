@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = @group.events.order('id DESC')
+    @events = @group.events.order('id DESC').page(params[:page]).per(10)
     authorize_action_for @group
   end
 

@@ -182,6 +182,9 @@ GEM
     jquery-turbolinks (1.0.0)
       railties (>= 3.1.0)
       turbolinks
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.3.0)
       addressable (~> 2.3)
     less (2.3.2)
@@ -385,6 +388,7 @@ DEPENDENCIES
   jbuilder (~> 1.0.1)
   jquery-rails
   jquery-turbolinks
+  kaminari
   launchy
   less-rails
   letter_opener
