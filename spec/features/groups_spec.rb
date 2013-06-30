@@ -4,11 +4,11 @@ require 'spec_helper'
 describe "Groups" do
   let!(:group) { FactoryGirl.create(:group) }
   let(:user) { FactoryGirl.create(:user) }
-  describe 'グループページにアクセスする' do
+  describe 'サークルページにアクセスする' do
     before do
       visit groups_path
     end
-    it '登録されているグループが表示される' do
+    it '登録されているサークルが表示される' do
       page.should have_content(group.name) 
     end
 
@@ -64,7 +64,7 @@ describe "Groups" do
       end
     end
 
-    describe '新規グループを登録する' do
+    describe '新規サークルを登録する' do
       context 'ログインしてない' do
         before do
           find('.new_btn').click()
@@ -97,7 +97,7 @@ describe "Groups" do
               current_url.should match Regexp.new groups_path
             end
 
-            it '新規に登録したグループが表示される' do
+            it '新規に登録したサークルが表示される' do
               page.should have_content(new_group.name)
             end
           end

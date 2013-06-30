@@ -1,8 +1,8 @@
 ja:
   memberships:
     create:
-      created: 'グループに加入しました'
+      created: 'サークルに加入しました'
     destroy:
-      destroyed: 'グループから脱退しました'
+      destroyed: 'サークルから脱退しました'
     update:
       updated: 'メンバーのレベルを変更しました'

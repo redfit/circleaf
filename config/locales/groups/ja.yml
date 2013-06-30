@@ -1,11 +1,11 @@
 ja:
   groups:
     index:
-      title: '登録されているグループ'
-      created: 'グループを作成しました'
-      destroyed: 'グループを削除しました'
-      destroyed_error: 'グループの削除ができませんでした'
+      title: '登録されているサークル'
+      created: 'サークルを作成しました'
+      destroyed: 'サークルを削除しました'
+      destroyed_error: 'サークルの削除ができませんでした'
     show:
-      updated: 'グループの情報を更新しました'
+      updated: 'サークルの情報を更新しました'
       members: 'メンバー'
       latest_event: '直近のイベント'

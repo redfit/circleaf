@@ -17,14 +17,14 @@ describe EventAuthorizer do
           before do
             group.update(privacy_scope: :private)
           end
-          context 'グループのメンバーである' do
+          context 'サークルのメンバーである' do
             before do
               group.join(user, :owner)
             end
             it { event.authorizer.readable_by?(user).should be_true }
           end
 
-          context 'グループのメンバーではない' do
+          context 'サークルのメンバーではない' do
             it { event.authorizer.readable_by?(user).should be_false }
           end
         end
@@ -50,12 +50,12 @@ describe EventAuthorizer do
       before do
         group.join(user, level)
       end
-      context 'グループのオーナーである' do
+      context 'サークルのオーナーである' do
         let(:level) { :owner }
         it { event.authorizer.updatable_by?(user).should be_true }
       end
 
-      context 'グループのオーナーではない' do
+      context 'サークルのオーナーではない' do
         let(:level) { :member }
         it { event.authorizer.updatable_by?(user).should be_false }
       end
@@ -66,12 +66,12 @@ describe EventAuthorizer do
       before do
         group.join(user, level)
       end
-      context 'グループのオーナーである' do
+      context 'サークルのオーナーである' do
         let(:level) { :owner }
         it { event.authorizer.deletable_by?(user).should be_true }
       end
 
-      context 'グループのオーナーではない' do
+      context 'サークルのオーナーではない' do
         let(:level) { :member }
         it { event.authorizer.deletable_by?(user).should be_false }
       end
