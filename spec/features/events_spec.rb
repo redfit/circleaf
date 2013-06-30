@@ -83,7 +83,7 @@ describe 'Events' do
             before do
               find('.delete_btn').click()
             end
-            it 'グループページへ遷移すること' do
+            it 'サークルページへ遷移すること' do
               page.current_path.should eq group_path(group)
             end
             it 'メッセージが表示されること' do

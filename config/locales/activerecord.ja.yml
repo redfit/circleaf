@@ -2,7 +2,7 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
-      group: 'グループ'
+      group: 'サークル'
       post: '投稿'
       event: 'イベント'
     attributes:
@@ -17,10 +17,10 @@ ja:
         mail_attend_status: "イベント参加可能となった時にメールを配信する"
         mail_event_comment: "イベントに新たなコメントが投稿された時にメールを配信する"
         mail_event_attendance: "イベントに新たな参加者が増えた時にメールを配信する"
-        mail_group_event: "グループに新たなイベントが増えた時にメールを配信する"
+        mail_group_event: "サークルに新たなイベントが増えた時にメールを配信する"
       group:
-        name: 'グループ名'
-        content: 'グループ詳細'
+        name: 'サークル名'
+        content: 'サークル詳細'
         privacy_scope: '公開範囲'
       membership:
         level: 'メンバーレベル'
@@ -47,6 +47,6 @@ ja:
         group:
           attributes:
             name:
-              blank: 'グループ名を入力して下さい'
+              blank: 'サークル名を入力して下さい'
             privacy_scope:
               blank: '公開範囲を選択して下さい'

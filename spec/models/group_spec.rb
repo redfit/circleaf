@@ -5,12 +5,12 @@ describe Group do
   let(:group) { create(:group) }
   let(:user) { create(:user) }
 
-  describe 'グループを作成できる' do
+  describe 'サークルを作成できる' do
     subject { group }
     it { should be_instance_of Group }
   end
 
-  describe '作成者ありでグループを生成する' do
+  describe '作成者ありでサークルを生成する' do
     let(:group) { create(:group, user: user) }
     subject { group.membership_for(user) }
     it { subject.level.should eq 'owner' }

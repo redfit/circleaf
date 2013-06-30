@@ -8,7 +8,7 @@ en:
     long: "%H:%M:%s"
     short: "%H:%M"
   site_info:
-    title: '#ishikitakai'
+    title: 'circleaf'
   nav:
     common:
       back: 'Back'

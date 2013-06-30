@@ -8,7 +8,7 @@ ja:
     long: "%H:%M:%s"
     short: "%H:%M"
   site_info:
-    title: '#ishikitakai'
+    title: 'circleaf'
   nav:
     common:
       back: '戻る'
@@ -27,7 +27,7 @@ ja:
       new: '新規作成'
       join: '加入する'
       leave: '脱退する'
-      show: 'グループ詳細'
+      show: 'サークル詳細'
     posts:
       index: 'コミュニケーションルーム'
     events:
