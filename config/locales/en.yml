@@ -42,6 +42,7 @@ en:
     my:
       root: 'My page'
     pages:
+      index: 'Top'
       about: 'About'
       terms: 'Teems'
       policy: 'Policy'

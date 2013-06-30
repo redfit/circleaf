@@ -42,6 +42,7 @@ ja:
     emails:
       edit: 'メールアドレス設定'
     pages:
+      index: 'トップ'
       about: 'このサイトについて'
       terms: '利用規約'
       policy: 'プライバシーポリシー'
