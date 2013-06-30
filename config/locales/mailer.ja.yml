@@ -9,3 +9,5 @@ ja:
         subject: "イベント「%{event_name}」に新たに参加者が増えました"
       group_event:
         subject: "サークル「%{group_name}」に新たなイベントが追加されました"
+    user:
+      email_confirmation: 'メールアドレスの確認をして下さい'
