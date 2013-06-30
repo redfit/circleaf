@@ -9,6 +9,7 @@ en:
     short: "%H:%M"
   site_info:
     title: 'circleaf'
+    description: 'Communication tool for your circle'
   nav:
     common:
       back: 'Back'

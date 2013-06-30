@@ -9,6 +9,7 @@ ja:
     short: "%H:%M"
   site_info:
     title: 'circleaf'
+    description: '小さなサークルの簡単コミュニケーションツール'
   nav:
     common:
       back: '戻る'

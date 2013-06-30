@@ -1,12 +1,13 @@
-$accent_color: #004f94;
+$accent_color: #006f94;
 $basic_color: #222222;
 
 @mixin head_color {
-  color: $basic_color;
+  color: $accent_color;
 }
 
 h1 {
   @include head_color;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .navbar-fixed-top .navbar-inner,
@@ -21,8 +22,8 @@ h1 {
 .navbar {
   .brand {
     @include head_color;
-    font-family: serif;
-    font-weight: bold;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: normal;
   }
 }
 

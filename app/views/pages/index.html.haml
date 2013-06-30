@@ -1,6 +1,14 @@
+- content_for(:head) do
+  = render 'ogp',
+    title: '', type: 'website',
+    url: root_url, image: 'http://lorempixel.com/300/300/',
+    description: t('site_info.description')
+
+= render('sns_buttons', url: root_url, link_name: t('site_info.title'))
+
 .hero-unit
-  %h1 circleafe
-  小さなサークルの簡単コミュニケーションツール！
+  %h1 circleaf
+  = t('site_info.description')
 
 .row-fluid
   .span4
