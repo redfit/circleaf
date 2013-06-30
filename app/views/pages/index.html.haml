@@ -38,3 +38,7 @@
     %h2 サークルを探す
     %p 公開サークルを探して加入することも出来ます。
     = link_to('サークルを探す', groups_path, class: 'btn btn-primary btn-block')
+
+%script{:src => "https://www.messageleaf.jp/embed.js", :type => "text/javascript"}
+  :javascript
+    new MSGLF({ titleBgColor: '#006f94', titleFontColor: '#FFFFFF', position: 'right', gadgetTitle: 'このサイトの要望を送る' }).changeDesign();
