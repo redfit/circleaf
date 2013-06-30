@@ -47,6 +47,12 @@ class Post
   listen: ->
     @channel.bind 'post', (data) =>
       @fetch(data.id)
+      $.titleAlert.stop()
+      $.titleAlert "New Message",
+        requireBlur:true
+        stopOnFocus:true
+        duration:0
+        interval:700
       return
     
     @channel.bind 'pusher:subscription_succeeded', (members) =>
