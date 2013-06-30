@@ -9,7 +9,7 @@ ja:
     short: "%H:%M"
   site_info:
     title: 'circleaf'
-    description: '小さなサークルの簡単コミュニケーションツール'
+    description: '小さなサークルのためのMarkdownが使える簡単コミュニケーションツール'
   nav:
     common:
       back: '戻る'
@@ -41,6 +41,11 @@ ja:
       root: 'マイページ'
     emails:
       edit: 'メールアドレス設定'
+    pages:
+      index: 'トップ'
+      about: 'このサイトについて'
+      terms: '利用規約'
+      policy: 'プライバシーポリシー'
   enumerize:
     privacy_scope:
       public: '全体公開'

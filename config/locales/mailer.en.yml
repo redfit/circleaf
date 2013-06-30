@@ -9,3 +9,5 @@ en:
         subject: "Add attendance to the %{event_name}"
       group_event:
         subject: "Add event to the %{group_name}"
+    user:
+      email_confirmation: 'Confirm your E-mail address'

@@ -10,11 +10,18 @@
 .hero-unit
   %h1 circleaf
   = t('site_info.description')
+  %p
+    %a{href: '/about', class: 'btn btn-primary btn-large'}
+      もっと詳しく
+      &raquo;
 
 .row-fluid
   .span4
     %h2 ログインする
-    %p サークルを作成したり、参加することができます。
+    %p
+      %a{href: '/terms', target: '_blank'}
+        利用規約
+      に同意して
     - if user_signed_in?
       = link_to('twitterでログインする', '#', class: 'btn btn-block disabled')
     - else
@@ -31,4 +38,3 @@
     %h2 サークルを探す
     %p 公開サークルを探して加入することも出来ます。
     = link_to('サークルを探す', groups_path, class: 'btn btn-primary btn-block')
-

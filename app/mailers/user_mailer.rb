@@ -4,7 +4,8 @@ class UserMailer < ActionMailer::Base
   def email_confirmation(user)
     @user = user
     set_locale
-    mail(:to => "#{user.name} <#{user.unconfirmed_email}>", :subject => "Confirm your email address")
+    subject = I18n.t("mailer.user.email_confirmation.subject")
+    mail(:to => "#{user.name} <#{user.unconfirmed_email}>", subject: "[#{I18n.t('site_info.title')}] #{subject}")
   end
 
   private

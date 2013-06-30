@@ -29,5 +29,9 @@ Circleaf::Application.routes.draw do
   resources :users, only: [:show]
 
   post 'pusher/authentication' => 'pushers#authentication'
+  
+  get 'about' => 'pages#about'
+  get 'policy' => 'pages#policy'
+  get 'terms' => 'pages#terms'
   root 'pages#index'
 end

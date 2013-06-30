@@ -64,8 +64,14 @@
             = yield
 
     %footer
+      %ul.menu
+        %li= link_to t('nav.pages.index'), root_path
+        %li= link_to t('nav.pages.about'), about_path
+        %li= link_to t('nav.pages.terms'), terms_path
+        %li= link_to t('nav.pages.policy'), policy_path
       %p
         Copyright &copy;
         = Time.current.year
-        @ppworks
+        %a{href: 'http://twitter.com/ppworks', target: '_blank'}
+          @ppworks
         All Rights Reserved.

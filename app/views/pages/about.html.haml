@@ -1,0 +1,34 @@
+.page-header
+  %h1 このサイトについて
+
+.row-fluid
+  .span4
+    %h4
+      %a{href: 'http://twitter.com'}
+        Twitterk
+      アカウントがあればok
+    = image_tag image_url('twitter_screenshot.png'), class: 'img-rounded'
+  .span4
+    %h4 Markdownが使えるチャット
+    = image_tag image_url('chat_screenshot.png'), class: 'img-rounded'
+  .span4
+    %h4 継続的なイベント管理
+    = image_tag image_url('event_screenshot.png'), class: 'img-rounded'
+
+.page-header
+  %h2 作っている人
+  %h2
+%ul.unstyled
+  %li
+    = link_to 'http://twitter.com/ppworks', rel: 'tooltip', :'data-title' => 'ppworks', :'data-placement' => 'bottom' do
+      = image_tag 'https://si0.twimg.com/profile_images/344513261573332456/fb9f2de4e8299279fdd3825cdfc1900d.png', size: '50x50'
+
+.row-fulid
+  .span3
+  .span6
+    %h2 今すぐログインする！
+    %a{href: '/terms', target: '_blank'}
+      利用規約
+    に同意して
+    = link_to('twitterでログインする', user_omniauth_authorize_path(:twitter), class: 'btn btn-info btn-block')
+  .span3

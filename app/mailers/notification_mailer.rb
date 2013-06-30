@@ -30,7 +30,7 @@ class NotificationMailer < ActionMailer::Base
     @user = user
     @event = event
     set_locale
-    mail(:to => "#{@user.name} <#{@user.email}>", subject: subject)
+    mail(:to => "#{@user.name} <#{@user.email}>", subject: "[#{I18n.t('site_info.title')}] #{subject}")
   end
 
   def set_locale
