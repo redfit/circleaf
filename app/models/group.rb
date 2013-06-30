@@ -11,6 +11,7 @@ class Group < ActiveRecord::Base
   enumerize :privacy_scope, in: self::PRIVACY_SCOPES
 
   attr_accessor :user
+  mount_uploader :image, GroupImageUploader
 
   has_many :memberships
   has_many :users, through: :memberships

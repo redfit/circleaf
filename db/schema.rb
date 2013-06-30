@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130627035627) do
+ActiveRecord::Schema.define(version: 20130630100656) do
 
   create_table "attendances", force: true do |t|
     t.integer  "event_id"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20130627035627) do
     t.string   "privacy_scope", default: "public", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
   end
 
   add_index "groups", ["privacy_scope"], name: "index_groups_on_privacy_scope"

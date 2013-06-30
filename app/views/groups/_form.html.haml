@@ -1,8 +1,9 @@
-= simple_form_for(@group, html: {class: 'form-horizontal'}) do |f|
+= simple_form_for(@group, html: {multipart: true, class: 'form-horizontal'}) do |f|
   = f.error_notification
   .form-inputs
     = f.input(:name)
     = f.input(:content)
+    = f.input(:image)
     = f.input(:privacy_scope, collection: Group.privacy_scope.options)
   .form-actions
     = f.submit(nil, class: 'btn btn-primary')

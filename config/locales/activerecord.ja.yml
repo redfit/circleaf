@@ -22,6 +22,7 @@ ja:
         name: 'サークル名'
         content: 'サークル詳細'
         privacy_scope: '公開範囲'
+        image: 'グループ正方形画像(300x300にリサイズされます)'
       membership:
         level: 'メンバーレベル'
       post:

@@ -1,7 +1,9 @@
 - unless below
   .label{class: @group.privacy_scope}
     = @group.privacy_scope_text
-  %h1= @group.name
+  %h1
+    = image_tag(@group.image_url(:thumb))
+    = @group.name
 .tabbable{class: below.present? ? 'tabs-below' : ''}
   = render_list(class: 'nav nav-tabs') do |li|
     - li << link_to(t('nav.groups.show'), group_path(@group))

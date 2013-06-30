@@ -27,6 +27,9 @@ gem 'coderay'
 gem 'validates_email_format_of'
 gem 'authority'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick'
 
 group :assets do
   gem 'sass-rails',   '~> 4.0.0'
