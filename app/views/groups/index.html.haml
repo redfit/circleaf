@@ -12,7 +12,7 @@
     %li.span4
       = link_to(group_path(group), class: 'thumbnail') do
         %h4= group.name
-        = image_tag group.image_url || image_url('circleafe300x300.png'), class: 'img-rounded'
+        = image_tag group.image_url || image_url('circleaf300x300.png'), class: 'img-rounded'
         %p= truncate(group.content, length: 20)
 
 = paginate @groups

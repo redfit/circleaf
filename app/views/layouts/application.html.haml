@@ -15,7 +15,7 @@
     = render 'ga'
     = yield(:head)
     = stylesheet_link_tag "application", :media => "all", 'data-turbolinks-track' => true
-    %link(href="favicon.ico" rel="shortcut icon")
+    %link(href="/favicon.ico" rel="shortcut icon")
 
 
   %body{ class: yield(:body_class), data: {group_id: yield(:group_id)} }

@@ -21,8 +21,6 @@ $btn_danger_hover_color: #e01a00;
 .navbar {
   .brand {
     @include head_color;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-weight: normal;
   }
 }
 
@@ -122,6 +120,15 @@ ul.sns {
 
 .hero-unit {
   background: transparent;
+  h1 {
+    color: $accent_color;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    &:before {
+      content: url('/images/circleaf50x50.png');
+      width: 50px;
+      height: 50px;
+    }
+  }
 }
 body.top {
   background: #fff image-url('top_background.png') no-repeat top right;
