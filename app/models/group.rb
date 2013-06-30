@@ -14,8 +14,8 @@ class Group < ActiveRecord::Base
   mount_uploader :image, GroupImageUploader
 
   has_many :memberships
-  has_many :users, through: :memberships
-  has_many :posts
+  has_many :users, -> { order('memberships.id ASC') }, through: :memberships
+  has_many :posts, -> { order('id ASC') }
   has_many :events
 
   validates_presence_of :name, :privacy_scope
