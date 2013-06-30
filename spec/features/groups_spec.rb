@@ -46,7 +46,10 @@ describe "Groups" do
           end
 
           describe '脱退する' do
+            let(:other_user) { create(:user) }
             before do
+              group.join(other_user, 'owner') 
+              reload
               find('.leave_btn').click()
             end
 
