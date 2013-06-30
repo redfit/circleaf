@@ -41,6 +41,22 @@ body {
     position: fixed;
     text-align: center;
     width: 100%;
+    >ul.menu {
+      display: inline-block;
+      margin-left: 0;
+      >li {
+        display: inline-block;
+        &:not(:last-child) {
+          &:after {
+            margin: 0 9px;
+            content:'|';
+          }
+        }
+        a {
+          color: #fff;
+        }
+      }
+    }
   }
 }
 

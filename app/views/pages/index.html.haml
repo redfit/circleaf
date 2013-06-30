@@ -18,6 +18,9 @@
     - if user_signed_in?
       = link_to('twitterでログインする', '#', class: 'btn btn-block disabled')
     - else
+      %a{href: '/terms', target: '_blank'}
+        利用規約
+      に同意して
       = link_to('twitterでログインする', user_omniauth_authorize_path(:twitter), class: 'btn btn-info btn-block')
   .span4
     %h2 サークルを作成する

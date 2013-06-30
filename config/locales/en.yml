@@ -41,6 +41,10 @@ en:
       edit: 'Update E-mail address'
     my:
       root: 'My page'
+    pages:
+      about: 'About'
+      terms: 'Teems'
+      policy: 'Policy'
   enumerize:
     privacy_scope:
       public: 'Public'
