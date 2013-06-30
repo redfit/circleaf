@@ -1,7 +1,8 @@
+- content_for(:body_class, 'top')
 - content_for(:head) do
   = render 'ogp',
     title: '', type: 'website',
-    url: root_url, image: 'http://lorempixel.com/300/300/',
+    url: root_url, image: nil,
     description: t('site_info.description')
 
 = render('sns_buttons', url: root_url, link_name: t('site_info.title'))
@@ -22,12 +23,12 @@
     %h2 サークルを作成する
     %p 必要なのはtwitterのアカウントだけ
     - if user_signed_in?
-      = link_to('サークルを作成する' , new_group_path, class: 'btn btn-warning btn-block')
+      = link_to('サークルを作成する' , new_group_path, class: 'btn btn-primary btn-block')
     - else
       = link_to('サークルを作成する' , '#', class: 'btn btn-block disabled')
 
   .span4
     %h2 サークルを探す
     %p 公開サークルを探して加入することも出来ます。
-    = link_to('サークルを探す', groups_path, class: 'btn btn-success btn-block')
+    = link_to('サークルを探す', groups_path, class: 'btn btn-primary btn-block')
 

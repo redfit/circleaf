@@ -2,7 +2,7 @@
 %meta{content: type, property: 'og:type'}
 %meta{content: url, property: 'og:url'}
 %meta{content: content_for?(:title) ? yield(:title) : t('site_info.title'), property: 'og:site_name'}
-%meta{content: image, property: 'og:image'}
+%meta{content: image ? image : image_url('circleafe300x300.png'), property: 'og:image'}
 %meta{content: Figaro.env.facebook_admin_uids, property: 'fb:admins'}
 %meta{content: Figaro.env.facebook_app_id, property: 'fb:app_id'}
 %meta{content: truncate(strip_tags(description), length: 100), property: 'og:description'}

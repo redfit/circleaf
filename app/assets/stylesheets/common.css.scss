@@ -1,5 +1,9 @@
 $accent_color: #006f94;
 $basic_color: #222222;
+$btn_color: #006f94;
+$btn_hover_color: #00a8e0;
+$btn_danger_color: #941100;
+$btn_danger_hover_color: #e01a00;
 
 @mixin head_color {
   color: $accent_color;
@@ -113,5 +117,26 @@ ul.sns {
   }
   hr {
     border-color: #ddd;
+  }
+}
+
+.hero-unit {
+  background: transparent;
+}
+body.top {
+  background: #fff image-url('top_background.png') no-repeat top right;
+}
+
+.btn-primary {
+  background: $btn_color;
+  &:hover {
+    background: $btn_hover_color;
+  }
+}
+
+.btn-danger {
+  background: $btn_danger_color;
+  &:hover {
+    background: $btn_danger_hover_color;
   }
 }
