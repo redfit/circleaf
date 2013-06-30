@@ -89,5 +89,5 @@ Circleaf::Application.configure do
   }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
-  config.action_mailer.default_url_options = { protocol: 'https', host: ENV['HOST'] }
+  config.action_mailer.default_url_options = { protocol: 'http', host: ENV['HOST'] }
 end
