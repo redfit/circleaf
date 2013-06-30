@@ -5,11 +5,6 @@ $basic_color: #222222;
   color: $accent_color;
 }
 
-h1 {
-  @include head_color;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
 .navbar-fixed-top .navbar-inner,
 .navbar-static-top .navbar-inner
 {
@@ -94,5 +89,29 @@ ul.sns {
   >li {
     display: inline-block;
     vertical-align: middle;
+  }
+}
+
+.content {
+  h1 {
+    font-size: 2.0em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+  h4 {
+    font-size: 1.4em;
+  }
+  h5 {
+    font-size: 1.2em;
+  }
+  h6 {
+    font-size: 1.0em;
+  }
+  hr {
+    border-color: #ddd;
   }
 }
