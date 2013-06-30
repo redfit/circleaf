@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-IshikitakaiCom::Application.load_tasks
+Circleaf::Application.load_tasks

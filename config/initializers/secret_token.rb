@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-IshikitakaiCom::Application.config.secret_key_base = '8be64fd3b4e4ddc3ebe774fb993f1b2b36525be9b59727ff21cd8f6c6d31d545484666dde425ab0cb76a40de6c09241e1d362a200e4328f1f50e0bcb64d6be69'
+Circleaf::Application.config.secret_key_base = '8be64fd3b4e4ddc3ebe774fb993f1b2b36525be9b59727ff21cd8f6c6d31d545484666dde425ab0cb76a40de6c09241e1d362a200e4328f1f50e0bcb64d6be69'
