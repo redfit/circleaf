@@ -3,6 +3,8 @@
   .well
     = t('.empty')
 - else
+  = paginate @events
+
   %table.table.table-striped.table-bordered.events
     %tr
       %th= t('activerecord.attributes.event.name')
@@ -22,6 +24,8 @@
           = link_to(t('nav.common.delete'), event_path(event),
             data: {confirm: t('nav.common.delete_confirm')}, method: :delete, 
             class: 'delete_btn btn btn-danger')
+
+  = paginate @events
 
 .btn-group
   = link_to(t('nav.common.new'), new_group_event_path(@group), class: 'btn btn-primary')

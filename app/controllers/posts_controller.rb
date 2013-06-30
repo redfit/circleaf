@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   layout Proc.new { |controller| controller.request.xhr? ? false : nil }
 
   def index
-    @posts = @group.posts.order('id DESC').limit(20).to_a.reverse
+    @posts = @group.posts.order('id DESC').page(params[:page]).per(100)
+    @posts.reverse!
   end
 
   def show

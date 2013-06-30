@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
   def index
-    @groups = Group.where(privacy_scope: :public).order('id ASC').to_a
+    @groups = Group.where(privacy_scope: :public).order('id ASC').page(params[:page]).per(10)
   end
 
   def show
