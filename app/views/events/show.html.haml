@@ -6,19 +6,13 @@
     description: @event.summary
 
 = render('sns_buttons', url: event_url(@event), link_name: "#{@event.name} - #{@event.group.name}")
-= render('groups/menu')
+= render('groups/menu', below: false)
 %ul.breadcrumb
   %li
     = link_to(@event.group.name, group_path(@event.group))
     %span.divider /
   %li.active
     = @event.name
-    
-- if current_user.can_update?(@event)
-  = link_to(t('nav.common.edit'), edit_event_path(@event), class: 'edit_btn btn')
-  = link_to(t('nav.common.delete'), event_path(@event),
-    data: {confirm: t('nav.common.delete_confirm')}, method: :delete, 
-    class: 'delete_btn btn btn-danger')
 
 .row-fluid
   .span9
@@ -45,9 +39,17 @@
           = link_to "https://maps.google.co.jp/maps?q=#{@event.place_address}", target: '_blank' do
             - image_tag "//maps.google.com/maps/api/staticmap?zoom=14&size=400x400&sensor=false&markers=#{@event.place_address}", class: 'img-polaroid'
 
+      - if current_user.can_update?(@event)
+        .form-actions
+          = link_to(t('nav.common.edit'), edit_event_path(@event), class: 'edit_btn btn')
+          = link_to(t('nav.common.delete'), event_path(@event),
+            data: {confirm: t('nav.common.delete_confirm')}, method: :delete, 
+            class: 'delete_btn btn btn-danger')
+
       %hr
       = render('comments/comments', comments: @event.comments)
       = render('comments/form', commentable: @event, comment: @event.comments.new)
+    
   .span3
     .form-actions
       = @event.link_join_or_leave(current_user)
